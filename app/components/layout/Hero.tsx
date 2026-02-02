@@ -109,6 +109,7 @@
 
 
 import Image from "next/image"
+import Link from "next/link"
 
 export default function Hero() {
   return (
@@ -166,6 +167,17 @@ export default function Hero() {
           </p>
 
           {/* CTA */}
+
+
+
+
+<Link href='/portfolio'>
+
+
+
+
+
+
           <button className="group inline-flex items-center gap-3 text-[14px] md:text-[16px]
             px-4 sm:px-12 lg:px-20
             py-2 md:py-3 rounded-xl
@@ -176,8 +188,10 @@ export default function Hero() {
             
           ">
             View Our Work
-            <span className="group-hover:translate-x-1 transition">→</span>
+            
           </button>
+
+          </Link>
         </div>
 
         {/* RIGHT IMAGE */}

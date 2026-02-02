@@ -3,6 +3,7 @@ import { Geist, Geist_Mono ,Marcellus,Inter ,Playfair_Display ,Poppins} from "ne
 import "./globals.css";
 import Footer from "./components/shared/Footer";
 import Navbar from "./components/layout/Navbar";
+import { Toaster } from "react-hot-toast"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -56,6 +57,7 @@ export default function RootLayout({
         > 
         <Navbar/>
         {children}
+         <Toaster position="top-right" />
         <Footer/>
 
       </body>

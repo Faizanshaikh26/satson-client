@@ -332,9 +332,9 @@ const navLinks = [
   { label: "Services", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "About us", href: "/about-us" },
-  { label: "Blogs", href: "/blogs" },
+  // { label: "Blogs", href: "/blogs" },
   { label: "Careers", href: "/careers" },
-  { label: "Contact", href: "/contact-us" },
+  // { label: "Contact", href: "/contact-us" },
 ]
 
 export default function Navbar() {
@@ -428,17 +428,15 @@ export default function Navbar() {
                     <Link
                       href={item.href}
                       className={`relative inline-block py-1 transition-colors duration-300
-                        ${active ? "text-white" : "text-white/80 hover:text-white"}
+                     ${active 
+  ? "text-transparent bg-clip-text bg-gradient-to-l from-[#5593F7] to-[#C47DE8] font-bold  " 
+  : "text-white/80 hover:bg-gradient-to-l hover:from-[#5593F7] hover:to-[#C47DE8] hover:bg-clip-text hover:text-transparent"
+}
+
                       `}
                     >
                       {item.label}
-                      <span
-                        className={`absolute left-0 -bottom-1 h-[2px] w-full
-                          bg-gradient-to-r from-[#3FA9F5] via-white to-[#3FA9F5]
-                          transition-transform duration-300 origin-left
-                          ${active ? "scale-x-100" : "scale-x-0"}
-                        `}
-                      />
+                     
                     </Link>
                   </li>
                 )
@@ -446,14 +444,19 @@ export default function Navbar() {
             </ul>
 
             {/* DESKTOP CTA */}
-            <button className="hidden md:inline-flex items-center
-                         bg-gradient-to-b from-[#1864B7] to-[#173D66E0]
+<Link href='lets-talk'>
+
+<button className="hidden md:inline-flex items-center
+                        bg-gradient-to-r from-[#C243FE] to-[#9B34CB]
                          justify-center rounded-2xl px-4 py-2.5
                          text-sm font-medium text-slate-200
                          shadow-md transition-all duration-300
                          hover:-translate-y-1 hover:shadow-xl">
               Request Demo
             </button>
+</Link>
+
+            
 
             {/* MOBILE MENU BUTTON */}
             <button

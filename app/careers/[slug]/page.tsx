@@ -1,6 +1,44 @@
 "use client"
 
+import { useEffect, useState } from "react"
+import { useParams } from "next/navigation"
+import api from "@/app/_lib/axios"
+
 export default function JobApplyPage() {
+
+ const { slug } = useParams()
+  const [job, setJob] = useState<any>(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchJob = async () => {
+      try {
+        const res = await api.get(`/jobs/${slug}`)
+        setJob(res.data)
+      } catch (err) {
+        console.error("Failed to load job", err)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    if (slug) fetchJob()
+  }, [slug])
+
+  if (loading)
+    return (
+      <div className="min-h-screen flex items-center justify-center text-white">
+        Loading...
+      </div>
+    )
+
+  if (!job)
+    return (
+      <div className="min-h-screen flex items-center justify-center text-white">
+        Job not found
+      </div>
+    )
+
     return (
         <section className="min-h-screen bg-Base px-6 pt-20 sm:pt-28 pb-16 text-white">
 
@@ -24,44 +62,35 @@ export default function JobApplyPage() {
                             <h3 className="text-[24px] font-inter font-semibold mb-4">Job Requirements</h3>
 
                             <ul className="space-y-1 text-[16px] font-inter text-secondaryText">
-                                <li>BE / BTECH / MCA / MCS</li>
-                                <li>Fresher</li>
-                                <li>Full Time (On-Site)</li>
+                                  <li>{job.type}</li>
+                <li>{job.location}</li>
+                <li>{job.tag}</li>
                             </ul>
 
-                            <h4 className="mt-6 mb-3 text-[20px] font-medium font-inter  text-secondaryText">
-                                Skill Set Required
-                            </h4>
+                           {job.requirements && (
+                <>
+                  <h4 className="mt-6 mb-3 text-[20px] font-medium font-inter text-secondaryText">
+                    Skill Set Required
+                  </h4>
+
+                  <div className="grid grid-cols-2 gap-2 font-inter text-sm text-secondaryText">
+                    {job.requirements.map((r: string, i: number) => (
+                      <span key={i}>{r}</span>
+                    ))}
+                  </div>
+                </>
+              )}
 
                             
 
-                            <div className="grid grid-cols-2 gap-2  font-inter text-sm text-secondaryText">
-                                <span>JavaScript</span>
-                                <span>Angular</span>
-                                <span>Java</span>
-                                <span>PHP</span>
-                            </div>
+                            
                         </div>
 
                         {/* Job Description */}
                         <div>
                             <h3 className="text-[24px] font-inter font-semibold mb-4">Job Description</h3>
 
-                            <p className="text-[16px] text-secondaryText leading-relaxed mb-4">
-                                Join our team as a Software Trainee Engineer and kickstart your
-                                career in the dynamic field of software development.
-                            </p>
-
-                            <p className="text-[16px] text-secondaryText leading-relaxed mb-4">
-                                Work on various projects within Satson, focusing on Front End
-                                Engineering, LAMP Stack, Mobile App Development, and other
-                                technologies as needed.
-                            </p>
-
-                            <p className="text-[16px] text-secondaryText leading-relaxed">
-                                Gain hands-on experience in coding, testing, and debugging within
-                                your assigned technology area.
-                            </p>
+                            {job.description}
                         </div>
 
                     </div>

@@ -264,7 +264,7 @@ const row1 = [
 
 const row2 = [
   "assets/client/kohinoor-1-1024x287.png",
-  "assets/client/Techmark.png",
+  "https://landinglabs.in/assets/Techmark.Logo%20TP-white-D01qCtMG.png",
 ]
 
 const row3 = [
