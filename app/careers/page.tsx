@@ -348,6 +348,7 @@ type Job = {
   tag: string
   location: string
   type: string
+  slug:string,
   description: string
   requirements?: string[]
 }
