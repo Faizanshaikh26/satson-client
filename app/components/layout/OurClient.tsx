@@ -244,129 +244,225 @@
 
 
 
+// "use client"
+
+// import { motion } from "framer-motion"
+// import { useEffect, useRef } from "react"
+// import gsap from "gsap"
+
+
+// /* ================= LOGOS ================= */
+
+// const row1 = [
+//   "assets/client/kiara logo_20250223_003411_0000 (1).png",
+//   "assets/client/Landing Labs Logo- 1.png",
+//   "assets/client/jsdk real estate (1).png",
+//   "assets/client/BharatKapital.png",
+// ]
+
+// const row2 = [
+//   "assets/client/kohinoor-1-1024x287.png",
+//   "assets/client/Techmark.Logo.png",
+  
+// ]
+
+// const row3 = [
+//   "assets/client/logo suvasti.png",
+// ]
+
+// /* ================= COMPONENT ================= */
+
+// export default function OurClient() {
+//   const containerRef = useRef<HTMLDivElement>(null)
+
+//   useEffect(() => {
+//     if (!containerRef.current) return
+
+//     gsap.fromTo(
+//       ".logo",
+//       { y: 40, opacity: 0 },
+//       {
+//         y: 0,
+//         opacity: 1,
+//         stagger: 0.12,
+//         duration: 1.1,
+//         ease: "power4.out",
+//         scrollTrigger: {
+//           trigger: containerRef.current,
+//           start: "top 75%",
+//         },
+//       }
+//     )
+//   }, [])
+
+//   const Logo = ({ src }: { src: string }) => (
+//     <motion.div
+//       className="logo group relative flex items-center justify-center"
+//       whileHover={{ scale: 1.06 }}
+//       transition={{ type: "spring", stiffness: 160 }}
+//     >
+//       {/* Hover Glow */}
+//       <div className="absolute inset-0 rounded-xl bg-white/5 opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500" />
+
+//       <img
+//         src={src}
+//         alt="Client logo"
+//         className="
+//           relative
+//           h-14 md:h-20
+//           object-contain
+//           opacity-80
+//           group-hover:opacity-100
+//           transition-all
+//           duration-500
+//         "
+//       />
+//     </motion.div>
+//   )
+
+//   return (
+//     <section
+//       ref={containerRef}
+//       className="relative py-12 md:py-24 w-full overflow-hidden flex items-center justify-center"
+//     >
+//       {/* Background Glow */}
+//       <div className="pointer-events-none absolute -top-[-40%] -left-40 w-[300px] h-[300px] rounded-full bg-[radial-gradient(circle,rgba(122,59,255,0.35)_0%,rgba(122,59,255,0.0)_70%)] blur-[120px] md:block hidden" />
+//       <div className="pointer-events-none absolute top-0 -right-40 w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(122,59,255,0.25)_0%,rgba(122,59,255,0.0)_70%)] blur-[120px] md:block hidden" />
+
+//       {/* Content */}
+//       <div className="relative z-10 w-full max-w-6xl mx-auto px-4 text-center">
+
+//         {/* Title */}
+//         <motion.h1
+//           initial={{ opacity: 0, y: -20 }}
+//           whileInView={{ opacity: 1, y: 0 }}
+//           transition={{ duration: 0.9 }}
+//           viewport={{ once: true }}
+//           className="font-playfairDisplay text-3xl sm:text-4xl md:text-5xl font-semibold mb-16"
+//         >
+//           Our{" "}
+//           <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent italic">
+//             Clients
+//           </span>
+//         </motion.h1>
+
+//         {/* ===== ROW 1 — 4 Logos (Always) ===== */}
+//         <div className="grid grid-cols-4 gap-y-10 gap-x-6 place-items-center mb-8 md:mb-14">
+//           {row1.map((src, i) => (
+//             <Logo key={i} src={src} />
+//           ))}
+//         </div>
+
+//         {/* ===== ROW 2 — 2 Logos (Always) ===== */}
+//         <div className="grid grid-cols-2 gap-x-16 place-items-center mb-10 md:mb-20 max-w-3xl mx-auto">
+//           {row2.map((src, i) => (
+//             <Logo key={i} src={src} />
+//           ))}
+//         </div>
+
+//         {/* ===== ROW 3 — 1 Logo (Always) ===== */}
+//         <div className="flex justify-center">
+//           <Logo src={row3[0]} />
+//         </div>
+
+//       </div>
+//     </section>
+//   )
+// }
+
+
+
 "use client"
 
 import { motion } from "framer-motion"
-import { useEffect, useRef } from "react"
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-
-gsap.registerPlugin(ScrollTrigger)
 
 /* ================= LOGOS ================= */
 
-const row1 = [
+const logos = [
   "assets/client/kiara logo_20250223_003411_0000 (1).png",
   "assets/client/Landing Labs Logo- 1.png",
   "assets/client/jsdk real estate (1).png",
   "assets/client/BharatKapital.png",
-]
-
-const row2 = [
   "assets/client/kohinoor-1-1024x287.png",
-  "https://landinglabs.in/assets/Techmark.Logo%20TP-white-D01qCtMG.png",
-]
-
-const row3 = [
+  "assets/client/Techmark.Logo.png",
   "assets/client/logo suvasti.png",
 ]
 
 /* ================= COMPONENT ================= */
 
 export default function OurClient() {
-  const containerRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (!containerRef.current) return
-
-    gsap.fromTo(
-      ".logo",
-      { y: 40, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        stagger: 0.12,
-        duration: 1.1,
-        ease: "power4.out",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 75%",
-        },
-      }
-    )
-  }, [])
-
-  const Logo = ({ src }: { src: string }) => (
-    <motion.div
-      className="logo group relative flex items-center justify-center"
-      whileHover={{ scale: 1.06 }}
-      transition={{ type: "spring", stiffness: 160 }}
-    >
-      {/* Hover Glow */}
-      <div className="absolute inset-0 rounded-xl bg-white/5 opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500" />
-
-      <img
-        src={src}
-        alt="Client logo"
-        className="
-          relative
-          h-14 md:h-20
-          object-contain
-          opacity-80
-          group-hover:opacity-100
-          transition-all
-          duration-500
-        "
-      />
-    </motion.div>
-  )
-
   return (
-    <section
-      ref={containerRef}
-      className="relative py-12 md:py-24 w-full overflow-hidden flex items-center justify-center"
-    >
-      {/* Background Glow */}
-      <div className="pointer-events-none absolute -top-[-40%] -left-40 w-[300px] h-[300px] rounded-full bg-[radial-gradient(circle,rgba(122,59,255,0.35)_0%,rgba(122,59,255,0.0)_70%)] blur-[120px] md:block hidden" />
-      <div className="pointer-events-none absolute top-0 -right-40 w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(122,59,255,0.25)_0%,rgba(122,59,255,0.0)_70%)] blur-[120px] md:block hidden" />
+    <section className="relative py-16 md:py-28 w-full overflow-hidden">
+      {/* Title */}
+      <h1 className="text-center font-playfairDisplay text-3xl sm:text-4xl md:text-5xl font-semibold mb-16">
+        Our{" "}
+        <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent italic">
+          Clients
+        </span>
+      </h1>
 
-      {/* Content */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 text-center">
+      {/* ===== MARQUEE 1 (LEFT → RIGHT) ===== */}
+      <Marquee direction="right" speed={35} />
 
-        {/* Title */}
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9 }}
-          viewport={{ once: true }}
-          className="font-playfairDisplay text-3xl sm:text-4xl md:text-5xl font-semibold mb-16"
-        >
-          Our{" "}
-          <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent italic">
-            Clients
-          </span>
-        </motion.h1>
+      {/* Spacing */}
+      <div className="h-10 md:h-16" />
 
-        {/* ===== ROW 1 — 4 Logos (Always) ===== */}
-        <div className="grid grid-cols-4 gap-y-10 gap-x-6 place-items-center mb-8 md:mb-14">
-          {row1.map((src, i) => (
-            <Logo key={i} src={src} />
-          ))}
-        </div>
-
-        {/* ===== ROW 2 — 2 Logos (Always) ===== */}
-        <div className="grid grid-cols-2 gap-x-16 place-items-center mb-10 md:mb-20 max-w-3xl mx-auto">
-          {row2.map((src, i) => (
-            <Logo key={i} src={src} />
-          ))}
-        </div>
-
-        {/* ===== ROW 3 — 1 Logo (Always) ===== */}
-        <div className="flex justify-center">
-          <Logo src={row3[0]} />
-        </div>
-
-      </div>
+      {/* ===== MARQUEE 2 (RIGHT → LEFT) ===== */}
+      <Marquee direction="left" speed={35} />
     </section>
   )
 }
+
+/* ================= MARQUEE ================= */
+
+const Marquee = ({
+  direction = "left",
+  speed = 30,
+}: {
+  direction?: "left" | "right"
+  speed?: number
+}) => {
+  return (
+    <div className="relative overflow-hidden">
+      <motion.div
+        className="flex w-max gap-20 items-center"
+        animate={{
+          x:
+            direction === "left"
+              ? ["0%", "-50%"]
+              : ["-50%", "0%"],
+        }}
+        transition={{
+          duration: speed,
+          ease: "linear",
+          repeat: Infinity,
+        }}
+      >
+        {/* First set */}
+        {logos.map((src, i) => (
+          <Logo key={`logo-a-${direction}-${i}`} src={src} />
+        ))}
+
+        {/* Duplicate set */}
+        {logos.map((src, i) => (
+          <Logo key={`logo-b-${direction}-${i}`} src={src} />
+        ))}
+      </motion.div>
+    </div>
+  )
+}
+
+/* ================= LOGO ITEM ================= */
+
+const Logo = ({ src }: { src: string }) => (
+  <div className="relative flex items-center justify-center min-w-[140px] md:min-w-[180px]">
+    {/* Glow */}
+    <div className="absolute inset-0 rounded-xl bg-white/5 opacity-0 hover:opacity-100 blur-xl transition-all duration-500" />
+
+    <img
+      src={src}
+      alt="Client logo"
+      className="h-14 md:h-20 object-contain opacity-80 hover:opacity-100 transition-all duration-500"
+    />
+  </div>
+)
