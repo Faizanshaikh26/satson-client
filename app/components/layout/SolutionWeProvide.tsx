@@ -99,7 +99,7 @@ export default function SolutionWeProvide() {
           className="
             grid 
             grid-cols-1 
-            sm:grid-cols-2 
+           
             lg:grid-cols-6 
             lg:grid-rows-9 
             gap-4 
@@ -132,7 +132,7 @@ export default function SolutionWeProvide() {
               </div>
 
               {/* Code */}
-            <div className="p-4 pb-12 md:pb-0 sm:p-6 md:p-8 font-mono text-[10px] sm:text-sm leading-6 sm:leading-7 overflow-hidden h-[320px] sm:h-[320px] md:h-full">
+            <div className="p-4 pb-12 md:pb-0 sm:p-6 md:p-8 font-mono text-[10px] sm:text-sm leading-6 sm:leading-7 overflow-hidden h-[320px] sm:h-[320px] ">
 
                 <pre
   id="code-pre"

@@ -58,7 +58,7 @@ export default function Home() {
     <main className="min-h-screen w-full bg-Base text-white relative overflow-x-hidden">
 
 
-      <Navbar/>
+      {/* <Navbar/> */}
       <Hero />
     <SolutionWeProvide/>
     <Industries/>

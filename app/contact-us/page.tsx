@@ -85,7 +85,7 @@ export default function ContactPage() {
   }
 
   return (
-    <section className="relative min-h-screen bg-Base px-4 sm:px-6 pt-24 sm:pt-32 pb-20 text-white">
+    <section className="relative min-h-screen bg-Base px-4 sm:px-6 pt-24 sm:pt-32 pb-20 text-white overflow-hidden">
       {/* Header */}
       <div className="relative z-10 max-w-4xl mx-auto text-center mb-14 sm:mb-20">
         <span className="inline-block mb-6 rounded-full border border-[#3B82F6]/30 bg-[#3B82F6]/10 px-4 py-1 text-xs text-[#60A5FA]">
@@ -104,6 +104,9 @@ export default function ContactPage() {
           just honest advice on how to achieve your goals.
         </p>
       </div>
+
+      <div className="pointer-events-none absolute top-[20%] -left-40 w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(122,59,255,0.35)_0%,rgba(122,59,255,0.0)_70%)] blur-[120px] hidden md:block" />
+      <div className="pointer-events-none absolute top-[30px] -right-40 w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(122,59,255,0.25)_0%,rgba(122,59,255,0.0)_70%)] blur-[120px] hidden md:block" />
 
       {/* Main Grid */}
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
@@ -230,9 +233,9 @@ export default function ContactPage() {
               Prefer to reach out directly?
             </h3>
 
-            <InfoItem icon={<Phone size={18} />} title="Call Us" value="+91 738 739 2708" />
+            <InfoItem icon={<Phone size={18} />} title="Call Us" value="+91 727 618 2902" />
             <InfoItem icon={<Mail size={18} />} title="Email Us" value="info@satsoninnovation.com" />
-            <InfoItem icon={<MessageCircle size={18} />} title="WhatsApp" value="+91 738 739 2708" />
+            <InfoItem icon={<MessageCircle size={18} />} title="WhatsApp" value="+91 727 618 2902" />
             <InfoItem icon={<Calendar size={18} />} title="Schedule a Call" value="Book a free consultation" />
           </div>
 

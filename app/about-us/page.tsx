@@ -9,7 +9,7 @@ export default function AboutUs() {
 
   {/* Background glows */}
   <div className="pointer-events-none absolute -top-[-7%] -left-30 w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(122,59,255,0.35)_0%,rgba(122,59,255,0.0)_70%)] blur-[120px] hidden md:block" />
-  <div className="pointer-events-none absolute top-0 -right-40 w-[505px] h-[520px] rounded-full bg-[radial-gradient(circle,rgba(122,59,255,0.25)_0%,rgba(122,59,255,0.0)_70%)] blur-[120px] hidden md:block" />
+  <div className="pointer-events-none absolute md:top-[10%] lg:top-0 -right-40 w-[505px] h-[520px] rounded-full bg-[radial-gradient(circle,rgba(122,59,255,0.25)_0%,rgba(122,59,255,0.0)_70%)] blur-[120px] hidden md:block" />
 
   {/* HEADER (always first) */}
   <div className="relative z-10 max-w-4xl mx-auto text-center mb-10 md:mb-20">

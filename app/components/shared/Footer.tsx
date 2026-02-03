@@ -1,4 +1,5 @@
-import Image from "next/image"
+
+import Link from "next/link";
 import { FaLinkedinIn, FaTwitter, FaInstagram } from "react-icons/fa"
 
 export default function Footer() {
@@ -27,12 +28,10 @@ export default function Footer() {
           </p>
 
           <div className="flex gap-2">
-            <a className="w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition">
+            <Link href="https://in.linkedin.com/company/satson-innovation-pvt-ltd" className="w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition">
               <FaLinkedinIn />
-            </a>
-            <a className="w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition">
-              <FaTwitter />
-            </a>
+            </Link>
+          
             <a className="w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition">
               <FaInstagram />
             </a>
@@ -54,10 +53,16 @@ export default function Footer() {
         <div>
           <h4 className="text-white text-sm font-semibold mb-6">Company</h4>
           <ul className="space-y-4 text-sm">
-            <li>About Us</li>
-            <li>Careers</li>
-            <li>Blog</li>
-            <li>Contact</li>
+            
+            <li>  
+              
+               <Link href="/about-us">
+                About Us
+             </Link>
+             </li>
+            <li><Link href="/careers">Careers</Link></li>
+           
+            <li><Link href="/contact-us">Contact</Link></li>
           </ul>
         </div>
 

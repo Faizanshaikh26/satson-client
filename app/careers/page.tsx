@@ -525,7 +525,10 @@ export default function JobsSection() {
   }
 
   return (
-    <section className="relative overflow-hidden bg-Base pt-24 sm:pt-32 pb-16">
+    <section className="relative overflow-hidden bg-Base pt-20 sm:pt-28 pb-16">
+
+        <div className="pointer-events-none absolute -top-[-7%] -left-30 w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(122,59,255,0.35)_0%,rgba(122,59,255,0.0)_70%)] blur-[120px] hidden md:block" />
+  <div className="pointer-events-none absolute md:top-[10%] lg:top-0 -right-40 w-[505px] h-[520px] rounded-full bg-[radial-gradient(circle,rgba(122,59,255,0.25)_0%,rgba(122,59,255,0.0)_70%)] blur-[120px] hidden md:block" />
       {/* Header */}
       <div className="relative z-10 max-w-6xl mx-auto text-center px-4">
         <span className="inline-block mb-6 rounded-full font-inter border border-[#3B82F6]/30 bg-[#3B82F6]/10 px-4 py-1 text-xs text-[#60A5FA]">
