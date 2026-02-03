@@ -2,14 +2,15 @@
 
 import { useEffect, useRef } from "react"
 import gsap from "gsap"
+import Image from "next/image"
 
 const teamImages = [
-  "/assets/team/5880df850d2b063dc7dee9d01fb9c940e5413dc6.jpg", // Large
-  "/assets/team/a4f5bb84e8a75e57ccfacac5de8a7b4087297d05.png",
-  "/assets/team/a18a0fa4e0ca1d8c5adeefdceceb1ca5a313150d.png",
-  "/assets/team/e310d834086d50380db539c885534c4e5c103728.png",
-  "/assets/team/edfc46c884e935c30071a6162f066b5a0d967c11.png",
-  "/assets/team/fb3f66268d7bb6ef116a1981923eff123ec75384.png",
+  "https://res.cloudinary.com/dj7xotphr/image/upload/v1770102405/5880df850d2b063dc7dee9d01fb9c940e5413dc6_ak3pdc.jpg", // Large
+  "https://res.cloudinary.com/dj7xotphr/image/upload/v1770103000/a4f5bb84e8a75e57ccfacac5de8a7b4087297d05_1_dwbv44.png",
+  "https://res.cloudinary.com/dj7xotphr/image/upload/v1770103000/a18a0fa4e0ca1d8c5adeefdceceb1ca5a313150d_1_njod1o.png",
+  "https://res.cloudinary.com/dj7xotphr/image/upload/v1770103002/e310d834086d50380db539c885534c4e5c103728_1_cxfs5d.png",
+  "https://res.cloudinary.com/dj7xotphr/image/upload/v1770102405/5880df850d2b063dc7dee9d01fb9c940e5413dc6_ak3pdc.jpg",
+  "https://res.cloudinary.com/dj7xotphr/image/upload/v1770103010/fb3f66268d7bb6ef116a1981923eff123ec75384_1_bbgaoo.png",
 ]
 
 const collageSpans = [
@@ -62,9 +63,10 @@ export default function TeamImageCollage() {
             ${collageSpans[index]}
           `}
         >
-          <img
+          <Image
             src={src}
             alt={`Team ${index + 1}`}
+            fill
             className="
               h-full w-full object-cover
               grayscale

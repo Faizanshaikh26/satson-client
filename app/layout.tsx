@@ -7,6 +7,7 @@ import { Toaster } from "react-hot-toast"
 import { useEffect } from "react"
 import gsap from "gsap"
 import { ScrollTrigger, ScrollSmoother } from "gsap/all"
+import ScrollToTop from "./components/layout/ScrollToTop ";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
 
@@ -55,7 +56,7 @@ export default function RootLayout({
 }>) {
   useEffect(() => {
     const smoother = ScrollSmoother.create({
-      smooth: 1.5,
+      smooth: 4,
       effects: true,
     })
 
@@ -66,6 +67,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable}  ${marcellus.variable}  ${inter.variable} ${playfairDisplay.variable} ${poppins.variable}   antialiased`}
         > 
+
+        <ScrollToTop />
         <Navbar />
 
         {/* Scroll area */}

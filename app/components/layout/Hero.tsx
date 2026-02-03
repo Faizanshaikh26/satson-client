@@ -199,7 +199,7 @@ export default function Hero() {
           <div className="absolute w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] lg:w-[360px] lg:h-[360px] blur-[120px] bg-purple-500/30 rounded-full" />
 
           <Image
-            src="/assets/hero/Hero Support.png"
+            src="https://res.cloudinary.com/dj7xotphr/image/upload/v1770103192/Hero_Support_1_jbwdig.webp"
             alt="Digital Globe"
             width={366}
             height={353}

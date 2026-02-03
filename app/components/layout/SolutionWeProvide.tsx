@@ -169,7 +169,7 @@ export default function SolutionWeProvide() {
 
             {/* Floating Cube */}
             <Image
-              src="/assets/logo/CUBE Satson.svg"
+              src="https://res.cloudinary.com/dj7xotphr/image/upload/v1770103363/CUBE_Satson_ut0gl0.svg"
               alt="AI Cube"
               width={260}
               height={260}
