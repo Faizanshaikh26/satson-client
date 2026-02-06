@@ -1,5 +1,10 @@
+ 
+ "use client"
+ 
+ 
+import { useEffect, useRef } from "react"
 import Image from "next/image"
-import HorizontalCarousel from "../shared/HorizontalCarousel"
+import gsap from "gsap"
 
 
 const industries = [
@@ -36,8 +41,54 @@ const industries = [
 ]
 
 export default function Industries() {
+const sectionRef = useRef<HTMLDivElement>(null)
+  const triggerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const pinDistance = window.innerWidth * 2; // Adjust for scroll length
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: `+=${pinDistance}`,
+          scrub: 1, // Smooth catch-up
+          pin: true,
+          anticipatePin: 1,
+        },
+      })
+
+      tl.to(triggerRef.current, {
+        x: () => -(triggerRef.current?.scrollWidth! - window.innerWidth + 100),
+        ease: "none",
+      })
+
+      // Card "Speed Leaning" and Image Parallax
+      const cards = gsap.utils.toArray<HTMLElement>(".industry-card")
+      cards.forEach((card) => {
+        const img = card.querySelector("img")
+        
+        gsap.to(img, {
+          x: -40, // Image moves inside the card
+          ease: "none",
+          scrollTrigger: {
+            trigger: card,
+            containerAnimation: tl, // Critical for horizontal sync
+            start: "left right",
+            end: "right left",
+            scrub: true,
+          }
+        })
+      })
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
+
+
   return (
-    <section className=" md:py-10  text-white overflow-hidden">
+    <section className=" md:py-10  text-white overflow-hidden" ref={sectionRef}>
       {/* Header */}
       <div className="text-center mb-10">
         <h2 className="text-[32px] md:text-5xl font-marcellus">
@@ -52,9 +103,9 @@ export default function Industries() {
       </div>
 
    
-  <div className="w-full overflow-x-auto scroll-smooth overscroll-x-contain">
+<div className="relative overflow-visible">
 
-  <div className="flex gap-10 snap-x snap-mandatory px-6">
+  <div className="flex gap-10 snap-x snap-mandatory px-6" ref={triggerRef}>
     {industries.map((item, i) => (
       <div
         key={i}

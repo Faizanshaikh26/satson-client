@@ -448,6 +448,7 @@ const Marquee = ({
           <Logo key={`logo-b-${direction}-${i}`} src={src} />
         ))}
       </motion.div>
+      
     </div>
   )
 }

@@ -6,10 +6,10 @@ import Navbar from "./components/layout/Navbar";
 import { Toaster } from "react-hot-toast"
 import { useEffect } from "react"
 import gsap from "gsap"
-import { ScrollTrigger, ScrollSmoother } from "gsap/all"
+import { ScrollTrigger, ScrollSmoother, SplitText } from "gsap/all"
 import ScrollToTop from "./components/layout/ScrollToTop ";
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother,SplitText)
 
 
 const geistSans = Geist({
@@ -56,7 +56,7 @@ export default function RootLayout({
 }>) {
   useEffect(() => {
     const smoother = ScrollSmoother.create({
-      smooth: 4,
+      smooth: 1.5,
       effects: true,
     })
 
