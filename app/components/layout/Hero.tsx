@@ -104,120 +104,6 @@
 
 
 
-
-
-
-
-// import Image from "next/image"
-// import Link from "next/link"
-
-// export default function Hero() {
-//   return (
-//     <section className="relative w-full min-h-screen overflow-hidden">
-
-//       {/* Background image */}
-//       <div
-//         className="absolute inset-0 opacity-20 bg-cover bg-center"
-//         style={{
-//           backgroundImage: "url('/assets/hero/Hero Backgound.jpg')",
-//         }}
-//       />
-
-//       {/* Overlays */}
-//       {/* <div className="absolute inset-0 bg-gradient-to-b from-[#080C16]/40 via-black/90 via-black/90  to-transparent" />
-//       <div className="absolute bottom-0 left-0 w-full h-[35%] bg-gradient-to-t from-black to-transparent" /> */}
-
-//       {/* Content wrapper */}
-//       <div className="relative z-10 min-h-screen max-w-[1350px] mx-auto px-5 sm:px-8 lg:px-12 flex flex-col lg:grid lg:grid-cols-2 lg:items-center">
-
-//         {/* LEFT CONTENT */}
-//         <div className="flex flex-col items-center lg:items-start text-center lg:text-left pt-34 sm:pt-32 lg:pt-0 space-y-2 sm:space-y-7 lg:space-y-8">
-
-//           {/* Pill */}
-//           <span className="inline-flex items-center font-inter gap-2 px-4 py-2 rounded-full text-xs sm:text-sm text-blue-400 border border-blue-500/30 bg-blue-500/10 backdrop-blur">
-//             Build it smarter
-//           </span>
-
-//           {/* Heading */}
-//           <h1 className="font-marcellus font-light tracking-tight text-white leading-tight
-//             text-[30px]
-//             sm:text-[32px]
-//             md:text-[40px]
-//             lg:text-[56px]"
-//           >
-//             We craft{" "}
-//             <span className="bg-gradient-to-l from-[#5593F7] to-[#C47DE8] bg-clip-text text-transparent">
-//               digital solutions
-//             </span>{" "}
-//             that turn visitors into{" "}
-//             <span className="bg-gradient-to-r from-[#5593F7] to-[#C47DE8] bg-clip-text text-transparent">
-//               customers
-//             </span>
-//           </h1>
-
-//           {/* Subtext */}
-//           <p className="font-inter text-white/90 max-w-md lg:max-w-xl
-           
-//            text-[14px]
-//             md:text-lg
-//             lg:text-[20px]"
-//           >
-//             We design performant, beautiful, and strategic software that
-//             generates qualified leads and boosts your revenue.
-//           </p>
-
-//           {/* CTA */}
-
-
-
-
-// <Link href='/portfolio'>
-
-
-
-
-
-
-//           <button className="group inline-flex items-center gap-3 text-[14px] md:text-[16px]
-//             px-4 sm:px-12 lg:px-20
-//             py-2 md:py-3 rounded-xl
-//             border border-purple-500
-//             text-white
-//             bg-gradient-to-br from-purple-500/10 to-blue-500/5
-//                font-inter
-            
-//           ">
-//             View Our Work
-            
-//           </button>
-
-//           </Link>
-//         </div>
-
-//         {/* RIGHT IMAGE */}
-//         <div className="relative flex justify-center items-center mt-14 sm:mt-16 lg:mt-0">
-//           <div className="absolute w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] lg:w-[360px] lg:h-[360px] blur-[120px] bg-purple-500/30 rounded-full" />
-
-//           <Image
-//             src="https://res.cloudinary.com/dj7xotphr/image/upload/v1770103192/Hero_Support_1_jbwdig.webp"
-//             alt="Digital Globe"
-//             width={366}
-//             height={353}
-//             priority
-//             className="relative z-10 object-contain
-//               w-[150px]
-//               sm:w-[240px]
-//               md:w-[300px]
-//               lg:w-[366px]"
-//           />
-//         </div>
-
-//       </div>
-//     </section>
-//   )
-// }
-
-
 // "use client"
 
 // import { useEffect, useRef } from "react"
@@ -2376,399 +2262,510 @@
 // }
 
 
-"use client"
+// "use client"
 
-import { useEffect, useRef } from "react"
+// import { useEffect, useRef } from "react"
+// import Image from "next/image"
+// import Link from "next/link"
+// import gsap from "gsap"
+
+
+// export default function Hero() {
+//   const sectionRef = useRef<HTMLDivElement>(null)
+//   const heroMoveRef = useRef<HTMLDivElement>(null)
+//   const globeRef = useRef<HTMLDivElement>(null)
+//   const overlayRef = useRef<HTMLDivElement>(null)
+//   const contentRef = useRef<HTMLDivElement>(null)
+//   const satsonTextRef = useRef<HTMLHeadingElement>(null)
+//   const satsonGlowRef = useRef<HTMLDivElement>(null) // For the glow effect
+//   const backgroundRef = useRef<HTMLDivElement>(null)
+//   const gradientOrbsRef = useRef<HTMLDivElement[]>([])
+//   const floatingElementsRef = useRef<HTMLDivElement[]>([])
+//   const timelineRef = useRef<gsap.core.Timeline | null>(null)
+//   const splitTextRef = useRef<SplitText | null>(null)
+
+//   // Store refs for floating elements
+//   const addToFloatingElements = (el: HTMLDivElement | null) => {
+//     if (el) floatingElementsRef.current.push(el)
+//   }
+
+//   // Store refs for gradient orbs
+//   const addToGradientOrbs = (el: HTMLDivElement | null) => {
+//     if (el) gradientOrbsRef.current.push(el)
+//   }
+
+//   useEffect(() => {
+//     const ctx = gsap.context(() => {
+//       // Initial entrance animations (only play once on load)
+//       const entranceTl = gsap.timeline()
+      
+//       // Set initial states for all animated elements
+//       gsap.set(contentRef.current, {
+//         opacity: 1,
+//         y: 0,
+//         rotationX: 0,
+//         filter: "blur(0px)"
+//       })
+      
+//       gsap.set(heroMoveRef.current, {
+//         scale: 1,
+//         x: 0,
+//         y: 0,
+//         rotationY: 0,
+//         filter: "blur(0px)"
+//       })
+      
+//       gsap.set(globeRef.current, {
+//         scale: 1,
+//         rotation: 0,
+//         x: 0,
+//         y: 0,
+//         filter: "blur(0px) brightness(1)"
+//       })
+      
+//       gsap.set(overlayRef.current, {
+//         scale: 2,
+//         opacity: 0,
+//         filter: "blur(20px)",
+//         rotationX: 90
+//       })
+      
+//       // KEY CHANGE: Keep the gradient text visible but with reduced opacity and scale
+//       gsap.set(satsonTextRef.current, {
+//         scale: 0.8,
+//         opacity: 0,
+//         // Remove brightness filter from the text itself
+//       })
+      
+//       // KEY CHANGE: Apply the bright effect to a separate glow element
+//       gsap.set(satsonGlowRef.current, {
+//         opacity: 0,
+//         scale: 1.2,
+//         filter: "brightness(10) blur(40px)"
+//       })
+
+//       // Parallax background (reversible)
+//       gsap.to(backgroundRef.current, {
+//         yPercent: 16,
+//         ease: "none",
+//         scrollTrigger: {
+//           trigger: sectionRef.current,
+//           start: "top top",
+//           end: "bottom top",
+//           scrub: true,
+//         }
+//       })
+
+//       // Floating elements animation (independent continuous animation)
+//       floatingElementsRef.current.forEach((el, i) => {
+//         gsap.to(el, {
+//           y: i % 2 === 0 ? -20 : 20,
+//           rotation: i % 2 === 0 ? 5 : -5,
+//           duration: 3 + i * 0.5,
+//           repeat: -1,
+//           yoyo: true,
+//           ease: "sine.inOut"
+//         })
+//       })
+
+//       // Gradient orbs animation (independent continuous animation)
+//       gradientOrbsRef.current.forEach((orb, i) => {
+//         gsap.to(orb, {
+//           x: i % 2 === 0 ? 50 : -50,
+//           y: i % 3 === 0 ? 30 : -30,
+//           duration: 4 + i,
+//           repeat: -1,
+//           yoyo: true,
+//           ease: "sine.inOut",
+//           delay: i * 0.3
+//         })
+//       })
+
+//       // Main scroll timeline with full reversibility
+//       const mainTl = gsap.timeline({
+//         scrollTrigger: {
+//           trigger: sectionRef.current,
+//           start: "top top",
+//           end: "+=200%",
+//           scrub: 1.5,
+//           pin: true,
+//           anticipatePin: 1,
+//           onUpdate: (self) => {
+//             // Dynamic blur based on scroll progress (will auto-reverse)
+//             const blurAmount = gsap.utils.interpolate(0, 20, self.progress)
+//             gsap.set(heroMoveRef.current, {
+//               filter: `blur(${blurAmount}px)`
+//             })
+//           }
+//         }
+//       })
+
+//       // Store timeline reference for cleanup
+//       timelineRef.current = mainTl
+
+//       /* ===============================
+//          SECTION 1: CAMERA PUSH & CONTENT FADE OUT
+//       =============================== */
+      
+//       // Enhanced camera push with parallax layers
+//       mainTl.to(heroMoveRef.current, {
+//         scale: 1.8,
+//         x: "-40vw",
+//         y: "10vh",
+//         rotationY: 5,
+//         transformOrigin: "center center",
+//         ease: "power3.inOut",
+//         duration: 2
+//       }, 0)
+
+//       // Globe animation with multiple effects
+//       mainTl.to(globeRef.current, {
+//         scale: 1.25,
+//         rotation: 360,
+//         duration: 2,
+//         ease: "power2.out"
+//       }, 0)
+
+//       // Content fade with 3D effect
+//       mainTl.to(contentRef.current, {
+//         opacity: 0,
+//         y: -100,
+//         rotationX: -20,
+//         filter: "blur(10px)",
+//         ease: "power3.in",
+//         duration: 1.5
+//       }, 0.5)
+
+//       /* ===============================
+//          SECTION 2: SATSON REVEAL
+//       =============================== */
+      
+//       // Satson overlay reveal
+//       mainTl.to(overlayRef.current, {
+//         scale: 0.7,
+//         opacity: 1,
+//         filter: "blur(0px)",
+//         rotationX: 0,
+//         duration: 2,
+//         ease: "back.out(1.7)"
+//       }, 0.3)
+
+//       // Satson text animation - animate the gradient text directly
+//       mainTl.to(satsonTextRef.current, {
+//         scale: 0.65,
+//         opacity: 1,
+//         duration: 1.5,
+//         ease: "elastic.out(1, 0.5)"
+//       }, 0.8)
+
+//       // Animate the glow effect separately (not the text itself)
+//       mainTl.to(satsonGlowRef.current, {
+//         opacity: 1,
+//         scale: 1,
+//         filter: "brightness(1) blur(60px)",
+//         duration: 1.5,
+//         ease: "power2.out"
+//       }, 0.9)
+
+//       /* ===============================
+//          SECTION 3: FINAL ADJUSTMENTS
+//       =============================== */
+      
+//       // Additional globe movement
+//       mainTl.to(globeRef.current, {
+//         x: "300px",
+//         y: "-60px",
+//         duration: 1,
+//         ease: "sine.inOut"
+//       }, 1.2)
+
+//       // Morph blur effect on globe
+//       mainTl.to(globeRef.current, {
+//         filter: "blur(15px) brightness(1.5)",
+//         duration: 0.8,
+//         ease: "power2.in"
+//       }, 1.5)
+
+//       // Final overlay glow effect
+//       mainTl.to(overlayRef.current, {
+//         filter: "brightness(2) contrast(1.2)",
+//         duration: 0.5,
+//         ease: "power2.out"
+//       }, 2)
+
+//     }, sectionRef)
+
+//     return () => {
+//       ctx.revert()
+//       timelineRef.current?.kill()
+//       splitTextRef.current?.revert()
+//     }
+//   }, [])
+
+//   return (
+//     <section
+//       ref={sectionRef}
+//       className="relative w-full min-h-screen overflow-hidden bg-black"
+//       style={{ perspective: "2400px" }}
+//     >
+//       {/* Animated Gradient Background */}
+//       <div className="absolute inset-0 overflow-hidden">
+//         <div
+//           ref={backgroundRef}
+//           className="absolute inset-0 opacity-20 bg-cover bg-center"
+//           style={{
+//             backgroundImage: "url('/assets/hero/Hero Backgound.jpg')",
+//           }}
+//         />
+        
+//         {/* Animated gradient orbs */}
+//         <div
+//           ref={addToGradientOrbs}
+//           className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full 
+//             bg-gradient-to-r from-purple-500/10 to-blue-500/10 blur-[120px]"
+//         />
+//         <div
+//           ref={addToGradientOrbs}
+//           className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full 
+//             bg-gradient-to-l from-pink-500/5 to-cyan-500/10 blur-[100px]"
+//         />
+//       </div>
+
+//       {/* Floating decorative elements */}
+//       <div
+//         ref={addToFloatingElements}
+//         className="absolute top-20 left-10 w-4 h-4 rounded-full bg-blue-500/30 blur-sm"
+//       />
+//       <div
+//         ref={addToFloatingElements}
+//         className="absolute bottom-40 right-20 w-6 h-6 rounded-full bg-purple-500/40 blur-sm"
+//       />
+//       <div
+//         ref={addToFloatingElements}
+//         className="absolute top-1/3 right-1/4 w-3 h-3 rounded-full bg-cyan-500/30 blur-sm"
+//       />
+
+//       {/* MOVING HERO WRAPPER */}
+//       <div ref={heroMoveRef}>
+//         <div className="relative z-10 min-h-screen max-w-[1350px] mx-auto px-5 sm:px-8 lg:px-12 flex flex-col lg:grid lg:grid-cols-2 lg:items-center">
+          
+//           {/* LEFT CONTENT */}
+//           <div
+//             ref={contentRef}
+//             className="flex flex-col items-center lg:items-start text-center lg:text-left pt-32 lg:pt-0 space-y-7"
+//           >
+//             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm text-blue-400 border border-blue-500/30 bg-blue-500/10 backdrop-blur">
+//               <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+//               Build it smarter
+//             </span>
+
+//             <h1 className="font-marcellus font-light tracking-tight text-white leading-tight
+//               text-[30px] sm:text-[32px] md:text-[40px] lg:text-[56px]">
+//               We craft{" "}
+//               <span className="bg-gradient-to-l from-[#5593F7] to-[#C47DE8] bg-clip-text text-transparent">
+//                 digital solutions
+//               </span>{" "}
+//               that turn visitors into{" "}
+//               <span className="bg-gradient-to-r from-[#5593F7] to-[#C47DE8] bg-clip-text text-transparent">
+//                 customers
+//               </span>
+//             </h1>
+
+//             <p className="text-white/80 max-w-xl text-[14px] md:text-lg lg:text-[20px]">
+//               We design performant, beautiful, and strategic software that
+//               generates qualified leads and boosts your revenue.
+//             </p>
+
+//             <Link href="/portfolio">
+//               <button className="group relative inline-flex items-center gap-3 text-[14px] md:text-[16px]
+//                 px-6 sm:px-12 lg:px-20 py-2 md:py-3 rounded-xl overflow-hidden
+//                 border border-purple-500/50 text-white
+//                 bg-gradient-to-br from-purple-500/10 to-blue-500/5
+//                 hover:from-purple-500/20 hover:to-blue-500/10 transition-all duration-300">
+//                 <span className="relative z-10">View Our Work</span>
+//                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent 
+//                   translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+//               </button>
+//             </Link>
+//           </div>
+
+//           {/* RIGHT GLOBE */}
+//           <div
+//             ref={globeRef}
+//             className="relative flex justify-center lg:ml-28 items-center mt-14 lg:mt-0"
+//           >
+//             {/* Animated glow rings */}
+//             <div className="absolute w-[400px] h-[400px] border border-purple-500/20 rounded-full animate-spin-slow" />
+//             <div className="absolute w-[350px] h-[350px] border border-blue-500/15 rounded-full animate-spin-slow reverse" />
+            
+//             <div className="absolute w-[300px] h-[300px] blur-[140px] bg-purple-500/40 rounded-full" />
+
+//             <Image
+//               src="https://res.cloudinary.com/dj7xotphr/image/upload/v1770103192/Hero_Support_1_jbwdig.webp"
+//               alt="Digital Globe"
+//               width={366}
+//               height={353}
+//               priority
+//               className="relative z-10 w-[180px] sm:w-[260px] md:w-[320px] lg:w-[366px] 
+//                 drop-shadow-[0_0_40px_rgba(135,100,255,0.3)]"
+//             />
+
+//             {/* Floating particles around globe */}
+//             {[...Array(6)].map((_, i) => (
+//               <div
+//                 key={i}
+//                 ref={addToFloatingElements}
+//                 className={`absolute w-1 h-1 rounded-full bg-white/50 
+//                   ${i % 2 === 0 ? 'animate-pulse' : ''}`}
+//                 style={{
+//                   transform: `rotate(${i * 60}deg) translateX(180px)`,
+//                 }}
+//               />
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* SATSON FULL OVERLAY */}
+//       <div
+//         ref={overlayRef}
+//         className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center"
+//       >
+//         <div className="relative flex items-center justify-center">
+//           {/* KEY CHANGE: The gradient text always stays with the same color */}
+//           <h1
+//             ref={satsonTextRef}
+//             className="
+//               font-marcellus
+//               text-[22vw]
+//               leading-none
+//               tracking-tight
+//               select-none
+//               bg-gradient-to-l from-[#5593F7] to-[#C47DE8] bg-clip-text text-transparent
+//               opacity-90
+//             "
+//           >
+//             SATSON
+//           </h1>
+          
+//           {/* KEY CHANGE: Separate element for the glow/whitening effect */}
+//           <div 
+//             ref={satsonGlowRef}
+//             className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-purple-500/30 
+//               rounded-full -z-10 blur-[60px] opacity-0"
+//           />
+//         </div>
+//       </div>
+//     </section>
+//   )
+// }
+
+
+
 import Image from "next/image"
 import Link from "next/link"
-import gsap from "gsap"
-
 
 export default function Hero() {
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const heroMoveRef = useRef<HTMLDivElement>(null)
-  const globeRef = useRef<HTMLDivElement>(null)
-  const overlayRef = useRef<HTMLDivElement>(null)
-  const contentRef = useRef<HTMLDivElement>(null)
-  const satsonTextRef = useRef<HTMLHeadingElement>(null)
-  const satsonGlowRef = useRef<HTMLDivElement>(null) // For the glow effect
-  const backgroundRef = useRef<HTMLDivElement>(null)
-  const gradientOrbsRef = useRef<HTMLDivElement[]>([])
-  const floatingElementsRef = useRef<HTMLDivElement[]>([])
-  const timelineRef = useRef<gsap.core.Timeline | null>(null)
-  const splitTextRef = useRef<SplitText | null>(null)
-
-  // Store refs for floating elements
-  const addToFloatingElements = (el: HTMLDivElement | null) => {
-    if (el) floatingElementsRef.current.push(el)
-  }
-
-  // Store refs for gradient orbs
-  const addToGradientOrbs = (el: HTMLDivElement | null) => {
-    if (el) gradientOrbsRef.current.push(el)
-  }
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Initial entrance animations (only play once on load)
-      const entranceTl = gsap.timeline()
-      
-      // Set initial states for all animated elements
-      gsap.set(contentRef.current, {
-        opacity: 1,
-        y: 0,
-        rotationX: 0,
-        filter: "blur(0px)"
-      })
-      
-      gsap.set(heroMoveRef.current, {
-        scale: 1,
-        x: 0,
-        y: 0,
-        rotationY: 0,
-        filter: "blur(0px)"
-      })
-      
-      gsap.set(globeRef.current, {
-        scale: 1,
-        rotation: 0,
-        x: 0,
-        y: 0,
-        filter: "blur(0px) brightness(1)"
-      })
-      
-      gsap.set(overlayRef.current, {
-        scale: 2,
-        opacity: 0,
-        filter: "blur(20px)",
-        rotationX: 90
-      })
-      
-      // KEY CHANGE: Keep the gradient text visible but with reduced opacity and scale
-      gsap.set(satsonTextRef.current, {
-        scale: 0.8,
-        opacity: 0,
-        // Remove brightness filter from the text itself
-      })
-      
-      // KEY CHANGE: Apply the bright effect to a separate glow element
-      gsap.set(satsonGlowRef.current, {
-        opacity: 0,
-        scale: 1.2,
-        filter: "brightness(10) blur(40px)"
-      })
-
-      // Parallax background (reversible)
-      gsap.to(backgroundRef.current, {
-        yPercent: 16,
-        ease: "none",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-        }
-      })
-
-      // Floating elements animation (independent continuous animation)
-      floatingElementsRef.current.forEach((el, i) => {
-        gsap.to(el, {
-          y: i % 2 === 0 ? -20 : 20,
-          rotation: i % 2 === 0 ? 5 : -5,
-          duration: 3 + i * 0.5,
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut"
-        })
-      })
-
-      // Gradient orbs animation (independent continuous animation)
-      gradientOrbsRef.current.forEach((orb, i) => {
-        gsap.to(orb, {
-          x: i % 2 === 0 ? 50 : -50,
-          y: i % 3 === 0 ? 30 : -30,
-          duration: 4 + i,
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut",
-          delay: i * 0.3
-        })
-      })
-
-      // Main scroll timeline with full reversibility
-      const mainTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "+=200%",
-          scrub: 1.5,
-          pin: true,
-          anticipatePin: 1,
-          onUpdate: (self) => {
-            // Dynamic blur based on scroll progress (will auto-reverse)
-            const blurAmount = gsap.utils.interpolate(0, 20, self.progress)
-            gsap.set(heroMoveRef.current, {
-              filter: `blur(${blurAmount}px)`
-            })
-          }
-        }
-      })
-
-      // Store timeline reference for cleanup
-      timelineRef.current = mainTl
-
-      /* ===============================
-         SECTION 1: CAMERA PUSH & CONTENT FADE OUT
-      =============================== */
-      
-      // Enhanced camera push with parallax layers
-      mainTl.to(heroMoveRef.current, {
-        scale: 1.8,
-        x: "-40vw",
-        y: "10vh",
-        rotationY: 5,
-        transformOrigin: "center center",
-        ease: "power3.inOut",
-        duration: 2
-      }, 0)
-
-      // Globe animation with multiple effects
-      mainTl.to(globeRef.current, {
-        scale: 1.25,
-        rotation: 360,
-        duration: 2,
-        ease: "power2.out"
-      }, 0)
-
-      // Content fade with 3D effect
-      mainTl.to(contentRef.current, {
-        opacity: 0,
-        y: -100,
-        rotationX: -20,
-        filter: "blur(10px)",
-        ease: "power3.in",
-        duration: 1.5
-      }, 0.5)
-
-      /* ===============================
-         SECTION 2: SATSON REVEAL
-      =============================== */
-      
-      // Satson overlay reveal
-      mainTl.to(overlayRef.current, {
-        scale: 0.7,
-        opacity: 1,
-        filter: "blur(0px)",
-        rotationX: 0,
-        duration: 2,
-        ease: "back.out(1.7)"
-      }, 0.3)
-
-      // Satson text animation - animate the gradient text directly
-      mainTl.to(satsonTextRef.current, {
-        scale: 0.65,
-        opacity: 1,
-        duration: 1.5,
-        ease: "elastic.out(1, 0.5)"
-      }, 0.8)
-
-      // Animate the glow effect separately (not the text itself)
-      mainTl.to(satsonGlowRef.current, {
-        opacity: 1,
-        scale: 1,
-        filter: "brightness(1) blur(60px)",
-        duration: 1.5,
-        ease: "power2.out"
-      }, 0.9)
-
-      /* ===============================
-         SECTION 3: FINAL ADJUSTMENTS
-      =============================== */
-      
-      // Additional globe movement
-      mainTl.to(globeRef.current, {
-        x: "300px",
-        y: "-60px",
-        duration: 1,
-        ease: "sine.inOut"
-      }, 1.2)
-
-      // Morph blur effect on globe
-      mainTl.to(globeRef.current, {
-        filter: "blur(15px) brightness(1.5)",
-        duration: 0.8,
-        ease: "power2.in"
-      }, 1.5)
-
-      // Final overlay glow effect
-      mainTl.to(overlayRef.current, {
-        filter: "brightness(2) contrast(1.2)",
-        duration: 0.5,
-        ease: "power2.out"
-      }, 2)
-
-    }, sectionRef)
-
-    return () => {
-      ctx.revert()
-      timelineRef.current?.kill()
-      splitTextRef.current?.revert()
-    }
-  }, [])
-
   return (
-    <section
-      ref={sectionRef}
-      className="relative w-full min-h-screen overflow-hidden bg-black"
-      style={{ perspective: "2400px" }}
-    >
-      {/* Animated Gradient Background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div
-          ref={backgroundRef}
-          className="absolute inset-0 opacity-20 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/assets/hero/Hero Backgound.jpg')",
-          }}
-        />
-        
-        {/* Animated gradient orbs */}
-        <div
-          ref={addToGradientOrbs}
-          className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full 
-            bg-gradient-to-r from-purple-500/10 to-blue-500/10 blur-[120px]"
-        />
-        <div
-          ref={addToGradientOrbs}
-          className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full 
-            bg-gradient-to-l from-pink-500/5 to-cyan-500/10 blur-[100px]"
-        />
-      </div>
+    <section className="relative w-full min-h-screen overflow-hidden">
 
-      {/* Floating decorative elements */}
+      {/* Background image */}
       <div
-        ref={addToFloatingElements}
-        className="absolute top-20 left-10 w-4 h-4 rounded-full bg-blue-500/30 blur-sm"
-      />
-      <div
-        ref={addToFloatingElements}
-        className="absolute bottom-40 right-20 w-6 h-6 rounded-full bg-purple-500/40 blur-sm"
-      />
-      <div
-        ref={addToFloatingElements}
-        className="absolute top-1/3 right-1/4 w-3 h-3 rounded-full bg-cyan-500/30 blur-sm"
+        className="absolute inset-0 opacity-20 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/assets/hero/Hero Backgound.jpg')",
+        }}
       />
 
-      {/* MOVING HERO WRAPPER */}
-      <div ref={heroMoveRef}>
-        <div className="relative z-10 min-h-screen max-w-[1350px] mx-auto px-5 sm:px-8 lg:px-12 flex flex-col lg:grid lg:grid-cols-2 lg:items-center">
-          
-          {/* LEFT CONTENT */}
-          <div
-            ref={contentRef}
-            className="flex flex-col items-center lg:items-start text-center lg:text-left pt-32 lg:pt-0 space-y-7"
+      {/* Overlays */}
+      {/* <div className="absolute inset-0 bg-gradient-to-b from-[#080C16]/40 via-black/90 via-black/90  to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-[35%] bg-gradient-to-t from-black to-transparent" /> */}
+
+      {/* Content wrapper */}
+      <div className="relative z-10 min-h-screen max-w-[1350px] mx-auto px-5 sm:px-8 lg:px-12 flex flex-col lg:grid lg:grid-cols-2 lg:items-center">
+
+        {/* LEFT CONTENT */}
+        <div className="flex flex-col items-center lg:items-start text-center lg:text-left pt-34 sm:pt-32 lg:pt-0 space-y-2 sm:space-y-7 lg:space-y-8">
+
+          {/* Pill */}
+          <span className="inline-flex items-center font-inter gap-2 px-4 py-2 rounded-full text-xs sm:text-sm text-blue-400 border border-blue-500/30 bg-blue-500/10 backdrop-blur">
+            Build it smarter
+          </span>
+
+          {/* Heading */}
+          <h1 className="font-marcellus font-light tracking-tight text-white leading-tight
+            text-[30px]
+            sm:text-[32px]
+            md:text-[40px]
+            lg:text-[56px]"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm text-blue-400 border border-blue-500/30 bg-blue-500/10 backdrop-blur">
-              <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-              Build it smarter
+            We craft{" "}
+            <span className="bg-gradient-to-l from-[#5593F7] to-[#C47DE8] bg-clip-text text-transparent">
+              digital solutions
+            </span>{" "}
+            that turn visitors into{" "}
+            <span className="bg-gradient-to-r from-[#5593F7] to-[#C47DE8] bg-clip-text text-transparent">
+              customers
             </span>
-
-            <h1 className="font-marcellus font-light tracking-tight text-white leading-tight
-              text-[30px] sm:text-[32px] md:text-[40px] lg:text-[56px]">
-              We craft{" "}
-              <span className="bg-gradient-to-l from-[#5593F7] to-[#C47DE8] bg-clip-text text-transparent">
-                digital solutions
-              </span>{" "}
-              that turn visitors into{" "}
-              <span className="bg-gradient-to-r from-[#5593F7] to-[#C47DE8] bg-clip-text text-transparent">
-                customers
-              </span>
-            </h1>
-
-            <p className="text-white/80 max-w-xl text-[14px] md:text-lg lg:text-[20px]">
-              We design performant, beautiful, and strategic software that
-              generates qualified leads and boosts your revenue.
-            </p>
-
-            <Link href="/portfolio">
-              <button className="group relative inline-flex items-center gap-3 text-[14px] md:text-[16px]
-                px-6 sm:px-12 lg:px-20 py-2 md:py-3 rounded-xl overflow-hidden
-                border border-purple-500/50 text-white
-                bg-gradient-to-br from-purple-500/10 to-blue-500/5
-                hover:from-purple-500/20 hover:to-blue-500/10 transition-all duration-300">
-                <span className="relative z-10">View Our Work</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent 
-                  translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-              </button>
-            </Link>
-          </div>
-
-          {/* RIGHT GLOBE */}
-          <div
-            ref={globeRef}
-            className="relative flex justify-center lg:ml-28 items-center mt-14 lg:mt-0"
-          >
-            {/* Animated glow rings */}
-            <div className="absolute w-[400px] h-[400px] border border-purple-500/20 rounded-full animate-spin-slow" />
-            <div className="absolute w-[350px] h-[350px] border border-blue-500/15 rounded-full animate-spin-slow reverse" />
-            
-            <div className="absolute w-[300px] h-[300px] blur-[140px] bg-purple-500/40 rounded-full" />
-
-            <Image
-              src="https://res.cloudinary.com/dj7xotphr/image/upload/v1770103192/Hero_Support_1_jbwdig.webp"
-              alt="Digital Globe"
-              width={366}
-              height={353}
-              priority
-              className="relative z-10 w-[180px] sm:w-[260px] md:w-[320px] lg:w-[366px] 
-                drop-shadow-[0_0_40px_rgba(135,100,255,0.3)]"
-            />
-
-            {/* Floating particles around globe */}
-            {[...Array(6)].map((_, i) => (
-              <div
-                key={i}
-                ref={addToFloatingElements}
-                className={`absolute w-1 h-1 rounded-full bg-white/50 
-                  ${i % 2 === 0 ? 'animate-pulse' : ''}`}
-                style={{
-                  transform: `rotate(${i * 60}deg) translateX(180px)`,
-                }}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* SATSON FULL OVERLAY */}
-      <div
-        ref={overlayRef}
-        className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center"
-      >
-        <div className="relative flex items-center justify-center">
-          {/* KEY CHANGE: The gradient text always stays with the same color */}
-          <h1
-            ref={satsonTextRef}
-            className="
-              font-marcellus
-              text-[22vw]
-              leading-none
-              tracking-tight
-              select-none
-              bg-gradient-to-l from-[#5593F7] to-[#C47DE8] bg-clip-text text-transparent
-              opacity-90
-            "
-          >
-            SATSON
           </h1>
-          
-          {/* KEY CHANGE: Separate element for the glow/whitening effect */}
-          <div 
-            ref={satsonGlowRef}
-            className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-purple-500/30 
-              rounded-full -z-10 blur-[60px] opacity-0"
+
+          {/* Subtext */}
+          <p className="font-inter text-white/90 max-w-md lg:max-w-xl
+           
+           text-[14px]
+            md:text-lg
+            lg:text-[20px]"
+          >
+            We design performant, beautiful, and strategic software that
+            generates qualified leads and boosts your revenue.
+          </p>
+
+          {/* CTA */}
+
+
+
+
+<Link href='/portfolio'>
+
+
+
+
+
+
+          <button className="group inline-flex items-center gap-3 text-[14px] md:text-[16px]
+            px-4 sm:px-12 lg:px-20
+            py-2 md:py-3 rounded-xl
+            border border-purple-500
+            text-white
+            bg-gradient-to-br from-purple-500/10 to-blue-500/5
+               font-inter
+            
+          ">
+            View Our Work
+            
+          </button>
+
+          </Link>
+        </div>
+
+        {/* RIGHT IMAGE */}
+        <div className="relative flex justify-center items-center mt-14 sm:mt-16 lg:mt-0">
+          <div className="absolute w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] lg:w-[360px] lg:h-[360px] blur-[120px] bg-purple-500/30 rounded-full" />
+
+          <Image
+            src="https://res.cloudinary.com/dj7xotphr/image/upload/v1770103192/Hero_Support_1_jbwdig.webp"
+            alt="Digital Globe"
+            width={366}
+            height={353}
+            priority
+            className="relative z-10 object-contain
+              w-[150px]
+              sm:w-[240px]
+              md:w-[300px]
+              lg:w-[366px]"
           />
         </div>
+
       </div>
     </section>
   )

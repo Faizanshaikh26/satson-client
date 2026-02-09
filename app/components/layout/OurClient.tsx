@@ -408,7 +408,7 @@ export default function OurClient() {
       <div className="h-10 md:h-16" />
 
       {/* ===== MARQUEE 2 (RIGHT → LEFT) ===== */}
-      <Marquee direction="left" speed={35} />
+      {/* <Marquee direction="left" speed={35} /> */}
     </section>
   )
 }

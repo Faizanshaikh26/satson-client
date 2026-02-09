@@ -1,4 +1,4 @@
-/* eslint-disable react-hooks/purity */
+
 
 // "use client";
 
@@ -639,57 +639,6 @@ export default function SolutionWeProvide() {
     });
 
 
-    gsap.fromTo(
-      sectionRef.current,
-      { 
-        y: "100vh",
-        borderRadius: "100px 100px 0 0" // Rounded corners as it enters
-      },
-      {
-        y: 0,
-        borderRadius: "0px 0px 0 0",
-        ease: "none",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top bottom", // Start when the top of the container hits the bottom of the viewport
-          end: "top top",    // End when the top of the container hits the top of the viewport
-          scrub: true,       // Ties animation to scroll speed
-          pin: false,
-        },
-      } )
-
-// --- HANGER / OVERLAY ANIMATION ---
-    // We target the section to slide up from the bottom of the viewport
-    gsap.fromTo(
-      sectionRef.current,
-      { 
-        y: "100vh",
-        borderRadius: "100px 100px 0 0" // Rounded corners as it enters
-      },
-      {
-        y: 0,
-        borderRadius: "0px 0px 0 0",
-        ease: "none",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top bottom", // Start when the top of the container hits the bottom of the viewport
-          end: "top top",    // End when the top of the container hits the top of the viewport
-          scrub: true,       // Ties animation to scroll speed
-          pin: false,
-        },
-      }
-    );
-
-    gsap.to("#hero-content", {
-  scale: 0.9,
-  opacity: 0.5,
-  scrollTrigger: {
-    trigger: containerRef.current,
-    start: "top bottom",
-    end: "top top",
-    scrub: true,
-  }
-});
 
 
   }, []);

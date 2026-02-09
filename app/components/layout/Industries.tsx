@@ -1,139 +1,139 @@
  
- "use client"
+//  "use client"
  
  
-import { useEffect, useRef } from "react"
-import Image from "next/image"
-import gsap from "gsap"
+// import { useEffect, useRef } from "react"
+// import Image from "next/image"
+// import gsap from "gsap"
 
 
-const industries = [
-  {
-    title: "Real Estate &\nInfrastructure",
-    image: "/assets/industries/historical-church.jpg",
-  },
-  {
-    title: "HealthCare\n& Clinics",
-    image: "/assets/industries/healthcare.jpg",
-  },
-  {
-    title: "Corporate\n& Enterprises",
-    image: "/assets/industries/equipment-garage-shop.jpg",
-  },
-  {
-    title: "Education\n& EdTech",
-    image: "/assets/industries/education-tech.jpg",
-  },
-  {
-    title: "Startups\n& Innovation",
-    image: "/assets/industries/white-keyboard-earphone-coffee-cup-eyeglasses-pen-spiral-notepad-against-black-desk.jpg",
-  },
-  {
-    title: "Real Estate &\nInfrastructure",
-    image: "/assets/industries/historical-church.jpg",
-  },
-  {
-    title: "HealthCare\n& Clinics",
-    image: "/assets/industries/healthcare.jpg",
-  },
+// const industries = [
+//   {
+//     title: "Real Estate &\nInfrastructure",
+//     image: "/assets/industries/historical-church.jpg",
+//   },
+//   {
+//     title: "HealthCare\n& Clinics",
+//     image: "/assets/industries/healthcare.jpg",
+//   },
+//   {
+//     title: "Corporate\n& Enterprises",
+//     image: "/assets/industries/equipment-garage-shop.jpg",
+//   },
+//   {
+//     title: "Education\n& EdTech",
+//     image: "/assets/industries/education-tech.jpg",
+//   },
+//   {
+//     title: "Startups\n& Innovation",
+//     image: "/assets/industries/white-keyboard-earphone-coffee-cup-eyeglasses-pen-spiral-notepad-against-black-desk.jpg",
+//   },
+//   {
+//     title: "Real Estate &\nInfrastructure",
+//     image: "/assets/industries/historical-church.jpg",
+//   },
+//   {
+//     title: "HealthCare\n& Clinics",
+//     image: "/assets/industries/healthcare.jpg",
+//   },
  
  
-]
+// ]
 
-export default function Industries() {
-const sectionRef = useRef<HTMLDivElement>(null)
-  const triggerRef = useRef<HTMLDivElement>(null)
+// export default function Industries() {
+// const sectionRef = useRef<HTMLDivElement>(null)
+//   const triggerRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const pinDistance = window.innerWidth * 2; // Adjust for scroll length
+//   useEffect(() => {
+//     const ctx = gsap.context(() => {
+//       const pinDistance = window.innerWidth * 2; // Adjust for scroll length
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: `+=${pinDistance}`,
-          scrub: 1, // Smooth catch-up
-          pin: true,
-          anticipatePin: 1,
-        },
-      })
+//       const tl = gsap.timeline({
+//         scrollTrigger: {
+//           trigger: sectionRef.current,
+//           start: "top top",
+//           end: `+=${pinDistance}`,
+//           scrub: 1, // Smooth catch-up
+//           pin: true,
+//           anticipatePin: 1,
+//         },
+//       })
 
-      tl.to(triggerRef.current, {
-        x: () => -(triggerRef.current?.scrollWidth! - window.innerWidth + 100),
-        ease: "none",
-      })
+//       tl.to(triggerRef.current, {
+//         x: () => -(triggerRef.current?.scrollWidth! - window.innerWidth + 100),
+//         ease: "none",
+//       })
 
-      // Card "Speed Leaning" and Image Parallax
-      const cards = gsap.utils.toArray<HTMLElement>(".industry-card")
-      cards.forEach((card) => {
-        const img = card.querySelector("img")
+//       // Card "Speed Leaning" and Image Parallax
+//       const cards = gsap.utils.toArray<HTMLElement>(".industry-card")
+//       cards.forEach((card) => {
+//         const img = card.querySelector("img")
         
-        gsap.to(img, {
-          x: -40, // Image moves inside the card
-          ease: "none",
-          scrollTrigger: {
-            trigger: card,
-            containerAnimation: tl, // Critical for horizontal sync
-            start: "left right",
-            end: "right left",
-            scrub: true,
-          }
-        })
-      })
-    }, sectionRef)
+//         gsap.to(img, {
+//           x: -40, // Image moves inside the card
+//           ease: "none",
+//           scrollTrigger: {
+//             trigger: card,
+//             containerAnimation: tl, // Critical for horizontal sync
+//             start: "left right",
+//             end: "right left",
+//             scrub: true,
+//           }
+//         })
+//       })
+//     }, sectionRef)
 
-    return () => ctx.revert()
-  }, [])
+//     return () => ctx.revert()
+//   }, [])
 
 
-  return (
-    <section className=" md:py-10  text-white overflow-hidden" ref={sectionRef}>
-      {/* Header */}
-      <div className="text-center mb-10">
-        <h2 className="text-[32px] md:text-5xl font-marcellus">
-          <span className="bg-gradient-to-r  from-[#5593F7] to-[#C47DE8] bg-clip-text text-transparent">
-            Industries
-          </span>{" "}
-          We Serve
-        </h2>
-        <p className="text-secondaryText md:mt-4 text-[14px] md:text-[18px]">
-          Powering progress across industries
-        </p>
-      </div>
+//   return (
+//     <section className=" md:py-10  text-white overflow-hidden" ref={sectionRef}>
+//       {/* Header */}
+//       <div className="text-center mb-10">
+//         <h2 className="text-[32px] md:text-5xl font-marcellus">
+//           <span className="bg-gradient-to-r  from-[#5593F7] to-[#C47DE8] bg-clip-text text-transparent">
+//             Industries
+//           </span>{" "}
+//           We Serve
+//         </h2>
+//         <p className="text-secondaryText md:mt-4 text-[14px] md:text-[18px]">
+//           Powering progress across industries
+//         </p>
+//       </div>
 
    
-<div className="relative overflow-visible">
+// <div className="relative overflow-visible">
 
-  <div className="flex gap-10 snap-x snap-mandatory px-6" ref={triggerRef}>
-    {industries.map((item, i) => (
-      <div
-        key={i}
-        className="relative w-[300px] h-[450px] shrink-0 snap-start overflow-hidden bg-black/40 border border-white/10"
-      >
-        <Image
-          src={item.image}
-          alt={item.title}
-          fill
-          className="object-cover grayscale hover:grayscale-0 transition duration-700"
-        />
+//   <div className="flex gap-10 snap-x snap-mandatory px-6" ref={triggerRef}>
+//     {industries.map((item, i) => (
+//       <div
+//         key={i}
+//         className="relative w-[300px] h-[450px] shrink-0 snap-start overflow-hidden bg-black/40 border border-white/10"
+//       >
+//         <Image
+//           src={item.image}
+//           alt={item.title}
+//           fill
+//           className="object-cover grayscale hover:grayscale-0 transition duration-700"
+//         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+//         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
 
-        <div className="absolute bottom-6 left-6 right-6">
-          <h3 className="text-[24px] bg-gradient-to-r from-[#5593F7] to-[#C47DE8] bg-clip-text text-transparent font-marcellus whitespace-pre-line">
-            {item.title}
-          </h3>
-        </div>
-      </div>
-    ))}
-  </div>
-</div>
+//         <div className="absolute bottom-6 left-6 right-6">
+//           <h3 className="text-[24px] bg-gradient-to-r from-[#5593F7] to-[#C47DE8] bg-clip-text text-transparent font-marcellus whitespace-pre-line">
+//             {item.title}
+//           </h3>
+//         </div>
+//       </div>
+//     ))}
+//   </div>
+// </div>
 
     
-    </section>
-  )
-}
+//     </section>
+//   )
+// }
 
 
 
@@ -239,3 +239,131 @@ const sectionRef = useRef<HTMLDivElement>(null)
 // }
 
 
+
+
+
+ 
+ "use client"
+ 
+ 
+import { useEffect, useRef } from "react"
+import Image from "next/image"
+import gsap from "gsap"
+
+
+const industries = [
+  {
+    title: "Real Estate &\nInfrastructure",
+    image: "/assets/industries/historical-church.jpg",
+  },
+  {
+    title: "HealthCare\n& Clinics",
+    image: "/assets/industries/healthcare.jpg",
+  },
+  {
+    title: "Corporate\n& Enterprises",
+    image: "/assets/industries/equipment-garage-shop.jpg",
+  },
+  {
+    title: "Education\n& EdTech",
+    image: "/assets/industries/education-tech.jpg",
+  },
+  {
+    title: "Startups\n& Innovation",
+    image: "/assets/industries/white-keyboard-earphone-coffee-cup-eyeglasses-pen-spiral-notepad-against-black-desk.jpg",
+  },
+  {
+    title: "Real Estate &\nInfrastructure",
+    image: "/assets/industries/historical-church.jpg",
+  },
+  {
+    title: "HealthCare\n& Clinics",
+    image: "/assets/industries/healthcare.jpg",
+  },
+ 
+ 
+]
+
+export default function Industries() {
+const sectionRef = useRef<HTMLDivElement>(null)
+  const triggerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+  const ctx = gsap.context(() => {
+    const container = triggerRef.current
+    if (!container) return
+
+    const cards = gsap.utils.toArray<HTMLElement>(".industry-card")
+    const totalWidth = cards.reduce((acc, card) => acc + card.offsetWidth + 40, 0)
+
+    // Clone cards for seamless loop
+    cards.forEach(card => {
+      const clone = card.cloneNode(true) as HTMLElement
+      container.appendChild(clone)
+    })
+
+    const marqueeTween = gsap.to(container, {
+      x: `-=${totalWidth}`,
+      duration: 40, // speed (lower = faster)
+      ease: "none",
+      repeat: -1,
+    })
+
+    // Pause on hover
+    container.addEventListener("mouseenter", () => marqueeTween.pause())
+    container.addEventListener("mouseleave", () => marqueeTween.resume())
+  }, sectionRef)
+
+  return () => ctx.revert()
+}, [])
+
+
+
+  return (
+    <section className=" md:py-10  text-white overflow-hidden" ref={sectionRef}>
+      {/* Header */}
+      <div className="text-center mb-10">
+        <h2 className="text-[32px] md:text-5xl font-marcellus">
+          <span className="bg-gradient-to-r  from-[#5593F7] to-[#C47DE8] bg-clip-text text-transparent">
+            Industries
+          </span>{" "}
+          We Serve
+        </h2>
+        <p className="text-secondaryText md:mt-4 text-[14px] md:text-[18px]">
+          Powering progress across industries
+        </p>
+      </div>
+
+   
+<div className="relative overflow-visible">
+
+  <div className="flex gap-10 snap-x snap-mandatory px-6" ref={triggerRef}>
+    {industries.map((item, i) => (
+     <div
+  key={i}
+  className="industry-card relative w-[300px] h-[450px] shrink-0 overflow-hidden bg-black/40 border border-white/10"
+>
+
+        <Image
+          src={item.image}
+          alt={item.title}
+          fill
+          className="object-cover grayscale hover:grayscale-0 transition duration-700"
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+
+        <div className="absolute bottom-6 left-6 right-6">
+          <h3 className="text-[24px] bg-gradient-to-r from-[#5593F7] to-[#C47DE8] bg-clip-text text-transparent font-marcellus whitespace-pre-line">
+            {item.title}
+          </h3>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+    
+    </section>
+  )
+}
