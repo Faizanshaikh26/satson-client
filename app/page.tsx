@@ -46,11 +46,12 @@ import BuildTogether from "./components/layout/BuildTogether"
 
 
 
+import type { Metadata } from "next"
 
-
-
-export const metadata = {
-  title: "SatSon",
+export const metadata: Metadata = {
+  title: "AI Solutions & Software Development Company | Satson Innovation",
+  description:
+    "Satson Innovation Pvt. Ltd. is an AI-powered software development company delivering intelligent apps, chatbots, ERP, CRM, and business automation solutions.",
 }
 
 export default function Home() {

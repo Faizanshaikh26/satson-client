@@ -246,9 +246,11 @@
  "use client"
  
  
-import { useEffect, useRef } from "react"
+
 import Image from "next/image"
-import gsap from "gsap"
+
+
+import { motion } from "framer-motion"
 
 
 const industries = [
@@ -285,42 +287,11 @@ const industries = [
 ]
 
 export default function Industries() {
-const sectionRef = useRef<HTMLDivElement>(null)
-  const triggerRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-  const ctx = gsap.context(() => {
-    const container = triggerRef.current
-    if (!container) return
-
-    const cards = gsap.utils.toArray<HTMLElement>(".industry-card")
-    const totalWidth = cards.reduce((acc, card) => acc + card.offsetWidth + 40, 0)
-
-    // Clone cards for seamless loop
-    cards.forEach(card => {
-      const clone = card.cloneNode(true) as HTMLElement
-      container.appendChild(clone)
-    })
-
-    const marqueeTween = gsap.to(container, {
-      x: `-=${totalWidth}`,
-      duration: 40, // speed (lower = faster)
-      ease: "none",
-      repeat: -1,
-    })
-
-    // Pause on hover
-    container.addEventListener("mouseenter", () => marqueeTween.pause())
-    container.addEventListener("mouseleave", () => marqueeTween.resume())
-  }, sectionRef)
-
-  return () => ctx.revert()
-}, [])
 
 
 
   return (
-    <section className=" md:py-10  text-white overflow-hidden" ref={sectionRef}>
+    <section className=" md:py-10  text-white overflow-hidden" >
       {/* Header */}
       <div className="text-center mb-10">
         <h2 className="text-[32px] md:text-5xl font-marcellus">
@@ -337,7 +308,18 @@ const sectionRef = useRef<HTMLDivElement>(null)
    
 <div className="relative overflow-visible">
 
-  <div className="flex gap-10 snap-x snap-mandatory px-6" ref={triggerRef}>
+  <motion.div 
+  animate={{
+          x:
+          ["0%", "-50%"]
+             
+        }}
+        transition={{
+          duration: 10,
+          ease: "linear",
+          repeat: Infinity,
+        }}
+  className="flex gap-10 snap-x snap-mandatory px-6">
     {industries.map((item, i) => (
      <div
   key={i}
@@ -360,7 +342,7 @@ const sectionRef = useRef<HTMLDivElement>(null)
         </div>
       </div>
     ))}
-  </div>
+  </motion.div>
 </div>
 
     

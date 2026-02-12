@@ -342,6 +342,16 @@ import { MapPin, Clock, ChevronDown } from "lucide-react"
 import api from "../_lib/axios"
 import Link from "next/link"
 
+
+import type { Metadata } from "next"
+
+// export const metadata: Metadata = {
+//   title: "Careers at Satson Innovation | Join Our Team",
+//   description:
+//     "Join Satson Innovation and work on AI-powered software, enterprise systems, and cutting-edge digital products.",
+// }
+
+
 type Job = {
   _id: string
   title: string

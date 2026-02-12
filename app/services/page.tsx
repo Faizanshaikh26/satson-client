@@ -221,7 +221,7 @@
 
 
 
-"use client"
+
 
 
 import ServiceCard from "../components/shared/ServiceCard"
@@ -339,6 +339,14 @@ export const services = [
 //   )
 // }
 
+
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "AI & Software Development Services | Satson Innovation",
+  description:
+    "Custom AI chatbots, AI-powered apps, web development, ERP, CRM, POS, and business intelligence solutions.",
+}
 
 
 export default function ServicesSection() {

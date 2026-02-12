@@ -735,7 +735,13 @@ import { useEffect, useState } from "react"
 import BuildTogether from "../components/layout/BuildTogether"
 import Link from "next/link"
 import api from "../_lib/axios"
+import type { Metadata } from "next"
 
+// export const metadata: Metadata = {
+//   title: "Portfolio & Case Studies | Satson Innovation",
+//   description:
+//     "Explore AI chatbot projects, ERP implementations, SaaS platforms, and enterprise software built by Satson Innovation.",
+// }
 type Project = {
   _id: string
   slug: string
