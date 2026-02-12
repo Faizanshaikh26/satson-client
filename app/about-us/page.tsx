@@ -1179,6 +1179,8 @@ export default function AboutUs() {
   ];
 
   return (
+
+    
     <main className="relative w-full bg-[#080C16] font-inter antialiased selection:bg-[#5593F7]/20 selection:text-white overflow-x-hidden">
   {/* —— CORE GLOW (exact from spec, color adjusted to #5593F7 / #C47DE8) —— */}
   <div className="pointer-events-none fixed -top-[-7%] -left-30 w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(85,147,247,0.28)_0%,rgba(85,147,247,0.0)_70%)] blur-[140px] hidden md:block" />
@@ -1210,38 +1212,71 @@ export default function AboutUs() {
 
     {/* —— 1. NUCLEUS: positioning —— */}
     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 xl:gap-28 mb-20">
-      <div className="order-2 lg:order-1">
-        <span className="font-marcellus text-[9px] sm:text-[10px] uppercase tracking-[0.3em] text-[#5593F7]/70">The nucleus</span>
-        <h2 className="font-playfairDisplay text-3xl sm:text-4xl md:text-5xl text-white mt-4 sm:mt-6 mb-6 sm:mb-8 leading-tight">
-          Where AI meets 
-          <span className="block bg-gradient-to-l from-[#5593F7] to-[#C47DE8] bg-clip-text text-transparent">
-            operational gravity.
-          </span>
-        </h2>
-        <div className="space-y-5 sm:space-y-6 font-poppins text-[#7588A3] text-sm sm:text-base md:text-lg leading-relaxed">
-          <p>
-            Satson Innovation sits at the intersection of AI solutions and digital transformation. 
-            We don't build features — we engineer business systems that automate, control, and scale.
-          </p>
-          <p className="text-white/70 border-l-2 border-[#5593F7] pl-5 sm:pl-6 italic text-sm sm:text-base md:text-lg">
-            "Smart Technology. Intelligent Business." is not a tagline. It's our architecture.
-          </p>
-        </div>
-      </div>
-      <div className="order-1  lg:order-2 relative flex items-center justify-center mb-8 lg:mb-0">
-        <div className="relative w-full max-w-[280px] sm:max-w-md aspect-square">
-          {/* concentric rings */}
-          <div className="absolute inset-0 rounded-full border border-[#5593F7]/10" />
-          <div className="absolute inset-[15%] rounded-full border border-[#C47DE8]/10" />
-          <div className="absolute inset-[30%] rounded-full border border-white/5" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-20 h-20 sm:w-28 sm:h-28 bg-gradient-to-br from-[#5593F7]/20 to-[#C47DE8]/20 rounded-2xl backdrop-blur-sm flex items-center justify-center border border-white/5">
-              <Hexagon size={32} className="sm:w-12 sm:h-12 text-[#5593F7]" strokeWidth={1.2} />
-            </div>
-          </div>
-        </div>
+  <div className="order-2 lg:order-1">
+    <span className="font-marcellus text-[9px] sm:text-[10px] uppercase tracking-[0.3em] text-[#5593F7]/70">The nucleus</span>
+    <h2 className="font-playfairDisplay text-3xl sm:text-4xl md:text-5xl text-white mt-4 sm:mt-6 mb-6 sm:mb-8 leading-tight">
+      Where AI meets 
+      <span className="block bg-gradient-to-l from-[#5593F7] to-[#C47DE8] bg-clip-text text-transparent">
+        operational gravity.
+      </span>
+    </h2>
+    <div className="space-y-5 sm:space-y-6 font-poppins text-[#7588A3] text-sm sm:text-base md:text-lg leading-relaxed">
+      <p>
+        Satson Innovation sits at the intersection of AI solutions and digital transformation. 
+        We don't build features — we engineer business systems that automate, control, and scale.
+      </p>
+      <p className="text-white/70 border-l-2 border-[#5593F7] pl-5 sm:pl-6 italic text-sm sm:text-base md:text-lg">
+        "Smart Technology. Intelligent Business." is not a tagline. It's our architecture.
+      </p>
+    </div>
+  </div>
+  
+  {/* —— right side: completely different, no circles —— */}
+  <div className="order-1 lg:order-2 relative flex items-center justify-center mb-8 lg:mb-0">
+    
+    {/* OPTION 1: abstract architectural stack / layered planes */}
+    <div className="relative w-full max-w-[280px] sm:max-w-md aspect-square flex items-center justify-center">
+      <div className="relative w-32 h-32 sm:w-40 sm:h-40">
+        {/* base platform */}
+        <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-[#5593F7]/40 to-[#C47DE8]/40 rounded-full blur-sm" />
+        
+        {/* vertical structure — like a graph / signal / infrastructure */}
+        <div className="absolute bottom-2 left-1/2 w-0.5 h-24 bg-gradient-to-t from-[#5593F7] to-[#C47DE8] -translate-x-1/2 origin-bottom" />
+        
+        {/* floating planes — data layers */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-16 h-12 border border-[#5593F7]/40 bg-[#5593F7]/5 backdrop-blur-sm rounded-sm rotate-45 origin-bottom-right" />
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-20 h-12 border border-[#C47DE8]/40 bg-[#C47DE8]/5 backdrop-blur-sm rounded-sm -rotate-12 origin-bottom-left" />
+        <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-24 h-10 border border-white/20 bg-white/5 backdrop-blur-sm rounded-sm rotate-12 origin-bottom-right" />
+        
+        {/* peak / signal */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#5593F7] rounded-full shadow-[0_0_15px_#5593F7]" />
       </div>
     </div>
+
+   
+    <div className="relative w-full max-w-[280px] sm:max-w-md aspect-square flex items-center justify-center">
+      <div className="relative w-32 h-32 sm:w-40 sm:h-40">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="space-y-1 w-full">
+            <div className="h-1.5 w-16 bg-gradient-to-r from-[#5593F7] to-transparent rounded-full" />
+            <div className="h-1.5 w-24 bg-gradient-to-r from-[#C47DE8] to-transparent rounded-full" />
+            <div className="h-1.5 w-20 bg-gradient-to-r from-[#5593F7] to-transparent rounded-full ml-8" />
+            <div className="h-1.5 w-28 bg-gradient-to-r from-[#C47DE8] to-transparent rounded-full" />
+            <div className="h-1.5 w-16 bg-gradient-to-r from-[#5593F7] to-transparent rounded-full ml-12" />
+            <div className="h-1.5 w-24 bg-gradient-to-r from-[#C47DE8] to-transparent rounded-full ml-4" />
+            <div className="h-1.5 w-20 bg-gradient-to-r from-[#5593F7] to-transparent rounded-full" />
+          </div>
+        </div>
+        
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#5593F7]/30 to-transparent" />
+        <div className="absolute top-0 left-1/3 w-px h-full bg-gradient-to-b from-transparent via-[#C47DE8]/30 to-transparent" />
+        
+        <span className="absolute -bottom-6 left-0 font-mono text-[8px] text-white/20">signal.intensity</span>
+        <span className="absolute -top-6 right-0 font-mono text-[8px] text-white/20">47Hz</span>
+      </div>
+    </div>
+  </div>
+</div>
 
     {/* —— 2. SERVICES / CAPABILITIES —— */}
     <div className="mb-20">
@@ -1777,6 +1812,7 @@ export default function AboutUs() {
   </div>
 </main>
   );
+
 }
 
 
