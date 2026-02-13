@@ -523,13 +523,280 @@
 
 
 
+// "use client"
+
+// import Image from "next/image"
+// import Link from "next/link"
+// import { useState, useRef, useEffect } from "react"
+// import { usePathname } from "next/navigation"
+// import { Menu, X } from "lucide-react"
+// import gsap from "gsap"
+
+// const navLinks = [
+//   { label: "Home", href: "/" },
+//   { label: "Services", href: "/services" },
+//   { label: "Portfolio", href: "/portfolio" },
+//   { label: "About us", href: "/about-us" },
+//   // { label: "Blogs", href: "/blogs" },
+//   { label: "Careers", href: "/careers" },
+//   // { label: "Contact", href: "/contact-us" },
+// ]
+
+// export default function Navbar() {
+//   const [open, setOpen] = useState(false)
+//   const [ready, setReady] = useState(false)
+//   const pathname = usePathname()
+
+//   const menuRef = useRef<HTMLDivElement>(null)
+//   const tl = useRef<gsap.core.Timeline | null>(null)
+
+//   const isActive = (href: string) =>
+//     href === "/" ? pathname === "/" : pathname.startsWith(href)
+
+//   // Setup GSAP timeline once (after first paint)
+//   useEffect(() => {
+//     if (!menuRef.current) return
+
+//     // Force initial state
+//     gsap.set(menuRef.current, {
+//       clipPath: "circle(0% at 0% 0%)",
+//       visibility: "hidden",
+//     })
+
+//     tl.current = gsap.timeline({
+//       paused: true,
+//       onReverseComplete: () => {
+//         // Hide the menu completely when animation reverses
+//         gsap.set(menuRef.current, { visibility: "hidden" })
+//       }
+//     })
+
+//     tl.current
+//       .set(menuRef.current, { visibility: "visible" })
+//       .to(menuRef.current, {
+//         clipPath: "circle(150% at 0% 0%)",
+//         duration: 0.6,
+//         ease: "power4.inOut",
+//       })
+//       .fromTo(
+//         ".mobile-link",
+//         {
+//           y: 40,
+//           opacity: 0,
+//         },
+//         {
+//           y: 0,
+//           opacity: 1,
+//           stagger: 0.06,
+//           duration: 0.3,
+//         },
+//         "-=0.4"
+//       )
+//       .fromTo(
+//         ".mobile-cta",
+//         {
+//           y: 20,
+//           opacity: 0,
+//         },
+//         {
+//           y: 0,
+//           opacity: 1,
+//           duration: 0.1,
+//         },
+//         "-=0.2"
+//       )
+
+//     // Wait for next frame to ensure DOM is ready
+//     const timer = setTimeout(() => {
+//       setReady(true)
+//     }, 50)
+
+//     return () => {
+//       clearTimeout(timer)
+//       // Cleanup GSAP instances
+//       if (tl.current) {
+//         tl.current.kill()
+//       }
+//     }
+//   }, [])
+
+//   // Play / reverse animation
+//   useEffect(() => {
+//     if (!tl.current || !ready) return
+//     open ? tl.current.play() : tl.current.reverse()
+//   }, [open, ready])
+
+//   // Reset animation when pathname changes (for route changes while menu is open)
+//   useEffect(() => {
+//     if (open) {
+//       setOpen(false)
+//     }
+//   }, [pathname])
+
+//   return (
+//     <>
+//       {/* ================= NAVBAR ================= */}
+//       <header className="fixed left-0 w-full z-[999] font-poppins">
+//         <div className="pt-4 px-4 md:px-0">
+//           <nav className="mx-auto lg:max-w-[1344px] h-[56px] lg:h-[60px]
+//                           flex items-center justify-between
+//                           rounded-2xl bg-[#080C16] shadow-lg
+//                           px-4 md:px-10">
+
+//             {/* LOGO */}
+//             <Link href="/" className="flex items-center">
+//               <Image
+//                 src="/assets/logo/Satson Logo.png"
+//                 alt="Satson"
+//                 width={90}
+//                 height={40}
+//                 priority
+//               />
+//             </Link>
+
+//             {/* DESKTOP NAV */}
+//             <ul className="hidden lg:flex items-center gap-10 text-[15px]">
+//               {navLinks.map((item) => {
+//                 const active = isActive(item.href)
+
+//                 return (
+//                   <li key={item.label} className="relative">
+//                     <Link
+//                       href={item.href}
+//                       className={`relative inline-block py-1 transition-colors duration-300
+//                      ${active 
+//   ? "text-transparent bg-clip-text bg-gradient-to-l from-[#5593F7] to-[#C47DE8] font-bold  " 
+//   : "text-white/80 hover:bg-gradient-to-l hover:from-[#5593F7] hover:to-[#C47DE8] hover:bg-clip-text hover:text-transparent"
+// }
+
+//                       `}
+//                     >
+//                       {item.label}
+                     
+//                     </Link>
+//                   </li>
+//                 )
+//               })}
+//             </ul>
+
+//             {/* DESKTOP CTA */}
+//             <Link href='lets-talk'>
+//               <button className="hidden lg:inline-flex items-center
+//                         bg-gradient-to-r from-[#8a609d] to-[#9B34CB]
+//                          justify-center rounded-2xl px-4 py-2.5
+//                          text-sm font-medium text-slate-200
+//                          shadow-md transition-all duration-300
+//                          hover:-translate-y-1 hover:shadow-xl">
+//                 Request Demo
+//               </button>
+//             </Link>
+
+//             {/* MOBILE MENU BUTTON */}
+//             <button
+//               onClick={() => setOpen(true)}
+//               className="lg:hidden text-white"
+//             >
+//               <Menu size={22} />
+//             </button>
+//           </nav>
+//         </div>
+//       </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//       {/* ================= MOBILE RADIAL MENU ================= */}
+//       <div
+//         ref={menuRef}
+//         className="fixed inset-0 z-[999] bg-[#080C16] text-white"
+//         style={{
+//           clipPath: "circle(0% at 0% 0%)",
+//           visibility: "hidden",
+//         }}
+//       >
+
+//         <div className="pt-[1px] px-3 md:px-0">
+// <div className="mx-auto mt-[16px] bg-[#080C16] max-w-[98%]  md::max-w-[1344px] h-[56px] lg:h-[60px]
+//                           flex items-center justify-between
+//                           rounded-2xl shadow-lg
+//                           px-4 md:px-8">
+//            <Link href="/" className="flex items-center">
+//               <Image
+//                 src="/assets/logo/Satson Logo.png"
+//                 alt="Satson"
+//                 width={90}
+//                 height={40}
+//                 priority
+//               />
+//             </Link>
+
+//           <button onClick={() => setOpen(false)}>
+//             <X size={26} />
+//           </button>
+//         </div>
+//         </div>
+//         {/* Top bar */}
+        
+
+//         {/* Center links - REMOVED THE FILTER FOR HOME */}
+//         <div className="flex flex-col items-center justify-center min-h-screen gap-8 -mt-10">
+//           {navLinks.map((item) => {
+//             const active = isActive(item.href)
+
+//             return (
+//               <Link
+//                 key={item.label}
+//                 href={item.href}
+//                 onClick={() => setOpen(false)}
+//                 className={`mobile-link text-[24px] font-light tracking-wide opacity-0
+//              ${active 
+//   ? "text-transparent bg-clip-text bg-gradient-to-l from-[#5593F7] to-[#C47DE8] font-bold  " 
+//   : "text-white/80 hover:bg-gradient-to-l hover:from-[#5593F7] hover:to-[#C47DE8] hover:bg-clip-text hover:text-transparent"
+// }
+//                 `}
+//               >
+//                 {item.label}
+//               </Link>
+//             )
+//           })}
+
+//           <Link
+//             href="/lets-talk"
+//             onClick={() => setOpen(false)}
+//             className="mobile-cta px-8 py-3 rounded-full
+//                        border border-purple-500 text-sm
+//                        hover:bg-purple-500/10 transition opacity-0"
+//           >
+//             Request Demo
+//           </Link>
+//         </div>
+//       </div>
+//     </>
+//   )
+// }
+
+
 "use client"
 
 import Image from "next/image"
 import Link from "next/link"
 import { useState, useRef, useEffect } from "react"
 import { usePathname } from "next/navigation"
-import { Menu, X } from "lucide-react"
+import { Menu, X, ChevronDown } from "lucide-react"
 import gsap from "gsap"
 
 const navLinks = [
@@ -542,16 +809,40 @@ const navLinks = [
   // { label: "Contact", href: "/contact-us" },
 ]
 
+// Service dropdown items based on your screenshot
+const serviceItems = [
+  { label: "Websites", href: "/services/websites" },
+  { label: "Web Apps", href: "/services/web-apps" },
+  { label: "Mobile Apps", href: "/services/mobile-apps" },
+  { label: "UI/UX Design", href: "/services/ui-ux" },
+  { label: "AI Solutions", href: "/services/ai-solutions" },
+]
+
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [ready, setReady] = useState(false)
+  const [servicesOpen, setServicesOpen] = useState(false)
   const pathname = usePathname()
+    const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
 
   const menuRef = useRef<HTMLDivElement>(null)
+  const dropdownRef = useRef<HTMLDivElement>(null)
   const tl = useRef<gsap.core.Timeline | null>(null)
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href)
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setServicesOpen(false)
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [])
 
   // Setup GSAP timeline once (after first paint)
   useEffect(() => {
@@ -660,33 +951,73 @@ export default function Navbar() {
                 const active = isActive(item.href)
 
                 return (
-                  <li key={item.label} className="relative">
+                  <li 
+                    key={item.label} 
+                    className="relative"
+                    onMouseEnter={item.label === "Services" ? () => setServicesOpen(true) : undefined}
+                    onMouseLeave={item.label === "Services" ? () => setServicesOpen(false) : undefined}
+                  >
                     <Link
                       href={item.href}
-                      className={`relative inline-block py-1 transition-colors duration-300
-                     ${active 
-  ? "text-transparent bg-clip-text bg-gradient-to-l from-[#5593F7] to-[#C47DE8] font-bold  " 
-  : "text-white/80 hover:bg-gradient-to-l hover:from-[#5593F7] hover:to-[#C47DE8] hover:bg-clip-text hover:text-transparent"
-}
-
+                      className={`relative inline-flex items-center gap-1 py-1 transition-colors duration-300
+                        ${active 
+                          ? "text-transparent bg-clip-text bg-gradient-to-l from-[#5593F7] to-[#C47DE8] font-bold" 
+                          : "text-white/80 hover:bg-gradient-to-l hover:from-[#5593F7] hover:to-[#C47DE8] hover:bg-clip-text hover:text-transparent"
+                        }
                       `}
                     >
                       {item.label}
-                     
+                      {item.label === "Services" && (
+                        <ChevronDown 
+                          className={`w-4 h-4 transition-transform duration-200 ${
+                            servicesOpen ? "rotate-180" : ""
+                          } ${active ? "text-[#5593F7]" : "text-white/80"}`}
+                        />
+                      )}
                     </Link>
+
+                    {/* Services Dropdown */}
+                    {item.label === "Services" && servicesOpen && (
+                      <div 
+                        ref={dropdownRef}
+                        className="absolute top-full left-0 mt-0 w-56 rounded-xl bg-[#080C16] border border-[#7588A3]/20 shadow-xl py-2 overflow-hidden"
+                        style={{ boxShadow: '0 10px 30px -10px rgba(0,0,0,0.5)' }}
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#5593F7]/5 to-[#C47DE8]/5 pointer-events-none" />
+                        {serviceItems.map((service, index) => {
+                          const isServiceActive = pathname === service.href
+                          
+                          return (
+                            <Link
+                              key={service.href}
+                              href={service.href}
+                              className={`block px-5 py-2.5 text-sm transition-all duration-200
+                                ${isServiceActive 
+                                  ? "bg-gradient-to-l text-transparent bg-clip-text  from-[#5593F7] to-[#C47DE8] font-medium border-l-2 border-[#5593F7]" 
+                                  : "text-white/70 hover:bg-gradient-to-l hover:from-[#5593F7]/10 hover:to-[#C47DE8]/10 hover:text-white hover:pl-7"
+                                }
+                              `}
+                              onClick={() => setServicesOpen(false)}
+                            >
+                              {service.label}
+                            </Link>
+                          )
+                        })}
+                      </div>
+                    )}
                   </li>
                 )
               })}
             </ul>
 
             {/* DESKTOP CTA */}
-            <Link href='lets-talk'>
+            <Link href='/lets-talk'>
               <button className="hidden lg:inline-flex items-center
                         bg-gradient-to-r from-[#8a609d] to-[#9B34CB]
-                         justify-center rounded-2xl px-4 py-2.5
-                         text-sm font-medium text-slate-200
-                         shadow-md transition-all duration-300
-                         hover:-translate-y-1 hover:shadow-xl">
+                        justify-center rounded-2xl px-4 py-2.5
+                        text-sm font-medium text-slate-200
+                        shadow-md transition-all duration-300
+                        hover:-translate-y-1 hover:shadow-xl">
                 Request Demo
               </button>
             </Link>
@@ -702,39 +1033,21 @@ export default function Navbar() {
         </div>
       </header>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       {/* ================= MOBILE RADIAL MENU ================= */}
       <div
         ref={menuRef}
-        className="fixed inset-0 z-[999] bg-[#080C16] text-white"
+        className="fixed inset-0 z-[999] bg-[#080C16] text-white overflow-y-auto"
         style={{
           clipPath: "circle(0% at 0% 0%)",
           visibility: "hidden",
         }}
       >
-
         <div className="pt-[1px] px-3 md:px-0">
-<div className="mx-auto mt-[16px] bg-[#080C16] max-w-[98%]  md::max-w-[1344px] h-[56px] lg:h-[60px]
+          <div className="mx-auto mt-[16px] bg-[#080C16] max-w-[98%] md:max-w-[1344px] h-[56px] lg:h-[60px]
                           flex items-center justify-between
                           rounded-2xl shadow-lg
                           px-4 md:px-8">
-           <Link href="/" className="flex items-center">
+            <Link href="/" className="flex items-center">
               <Image
                 src="/assets/logo/Satson Logo.png"
                 alt="Satson"
@@ -744,18 +1057,65 @@ export default function Navbar() {
               />
             </Link>
 
-          <button onClick={() => setOpen(false)}>
-            <X size={26} />
-          </button>
+            <button onClick={() => setOpen(false)}>
+              <X size={26} />
+            </button>
+          </div>
         </div>
-        </div>
-        {/* Top bar */}
-        
 
-        {/* Center links - REMOVED THE FILTER FOR HOME */}
-        <div className="flex flex-col items-center justify-center min-h-screen gap-8 -mt-10">
+        {/* Mobile menu links */}
+        <div className="flex flex-col items-center justify-start min-h-screen gap-6 pt-20 pb-10">
           {navLinks.map((item) => {
             const active = isActive(item.href)
+          
+
+            if (item.label === "Services") {
+              return (
+                <div key={item.label} className="w-full max-w-[250px]  ml-[132px]">
+                  <button
+                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                    className={`mobile-link w-full flex items-center justify-between text-[24px] font-light tracking-wide opacity-0 px-4 py-2
+                      ${active 
+                        ? "text-transparent bg-clip-text bg-gradient-to-l from-[#5593F7] to-[#C47DE8] font-bold" 
+                        : "text-white/80"
+                      }
+                    `}
+                  >
+                    <span>{item.label}</span>
+                    <ChevronDown 
+                      className={`w-5 h-5 transition-transform duration-200 ${
+                        mobileServicesOpen ? "rotate-180" : ""
+                      } ${active ? "text-[#5593F7]" : "text-white/80"}`}
+                    />
+                  </button>
+                  
+                  {/* Mobile Services Submenu */}
+                  <div className={`mt-2 ml-10 space-y-2 overflow-hidden transition-all duration-300 ${
+                    mobileServicesOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                  }`}>
+                    {serviceItems.map((service) => {
+                      const isServiceActive = pathname === service.href
+                      
+                      return (
+                        <Link
+                          key={service.href}
+                          href={service.href}
+                          onClick={() => setOpen(false)}
+                          className={`block py-2 px-6 text-base rounded-lg transition-all duration-200
+                            ${isServiceActive 
+                              ? "bg-gradient-to-l text-transparent bg-clip-text  from-[#5593F7] to-[#C47DE8] font-medium border-l-2 border-[#5593F7]" 
+                              : "text-white/70 hover:bg-gradient-to-l hover:from-[#5593F7]/10 hover:to-[#C47DE8]/10 hover:text-white"
+                            }
+                          `}
+                        >
+                          {service.label}
+                        </Link>
+                      )
+                    })}
+                  </div>
+                </div>
+              )
+            }
 
             return (
               <Link
@@ -763,10 +1123,10 @@ export default function Navbar() {
                 href={item.href}
                 onClick={() => setOpen(false)}
                 className={`mobile-link text-[24px] font-light tracking-wide opacity-0
-             ${active 
-  ? "text-transparent bg-clip-text bg-gradient-to-l from-[#5593F7] to-[#C47DE8] font-bold  " 
-  : "text-white/80 hover:bg-gradient-to-l hover:from-[#5593F7] hover:to-[#C47DE8] hover:bg-clip-text hover:text-transparent"
-}
+                  ${active 
+                    ? "text-transparent bg-clip-text bg-gradient-to-l from-[#5593F7] to-[#C47DE8] font-bold" 
+                    : "text-white/80 hover:bg-gradient-to-l hover:from-[#5593F7] hover:to-[#C47DE8] hover:bg-clip-text hover:text-transparent"
+                  }
                 `}
               >
                 {item.label}
@@ -777,7 +1137,7 @@ export default function Navbar() {
           <Link
             href="/lets-talk"
             onClick={() => setOpen(false)}
-            className="mobile-cta px-8 py-3 rounded-full
+            className="mobile-cta px-8 py-3 mt-4 rounded-full
                        border border-purple-500 text-sm
                        hover:bg-purple-500/10 transition opacity-0"
           >

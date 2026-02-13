@@ -39,15 +39,51 @@ export default function Footer() {
         </div>
 
         {/* Services */}
-        <div>
-          <h4 className="text-white text-sm font-semibold mb-6">Services</h4>
-          <ul className="space-y-4 text-sm">
-            <li>Web Development</li>
-            <li>Mobile Apps</li>
-            <li>AI Solutions</li>
-            <li>Cloud Services</li>
-          </ul>
-        </div>
+       <div>
+  <h4 className="text-white text-sm font-semibold mb-6">Services</h4>
+  <ul className="space-y-4 text-sm">
+    <li>
+      <Link 
+        href="/services/websites" 
+        className="text-gray-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-l hover:from-[#5593F7] hover:to-[#C47DE8] transition-all duration-200"
+      >
+        Web Development
+      </Link>
+    </li>
+    <li>
+      <Link 
+        href="/services/mobile-apps" 
+        className="text-gray-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-l hover:from-[#5593F7] hover:to-[#C47DE8] transition-all duration-200"
+      >
+        Mobile Apps
+      </Link>
+    </li>
+    <li>
+      <Link 
+        href="/services/ai-solutions" 
+        className="text-gray-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-l hover:from-[#5593F7] hover:to-[#C47DE8] transition-all duration-200"
+      >
+        AI Solutions
+      </Link>
+    </li>
+    <li>
+      <Link 
+        href="/services/web-apps" 
+        className="text-gray-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-l hover:from-[#5593F7] hover:to-[#C47DE8] transition-all duration-200"
+      >
+        Web Apps
+      </Link>
+    </li>
+    <li>
+      <Link 
+        href="/services/ui-ux" 
+        className="text-gray-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-l hover:from-[#5593F7] hover:to-[#C47DE8] transition-all duration-200"
+      >
+        UI/UX Design
+      </Link>
+    </li>
+  </ul>
+</div>
 
         {/* Company */}
         <div>
@@ -56,13 +92,13 @@ export default function Footer() {
             
             <li>  
               
-               <Link href="/about-us">
+               <Link href="/about-us"  className="text-gray-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-l hover:from-[#5593F7] hover:to-[#C47DE8] transition-all duration-200">
                 About Us
              </Link>
              </li>
-            <li><Link href="/careers">Careers</Link></li>
+            <li><Link  className="text-gray-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-l hover:from-[#5593F7] hover:to-[#C47DE8] transition-all duration-200" href="/careers">Careers</Link></li>
            
-            <li><Link href="/contact-us">Contact</Link></li>
+            <li><Link  className="text-gray-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-l hover:from-[#5593F7] hover:to-[#C47DE8] transition-all duration-200" href="/contact-us">Contact</Link></li>
           </ul>
         </div>
 
