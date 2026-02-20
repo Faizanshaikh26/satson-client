@@ -4,7 +4,7 @@ import "./globals.css";
 import Footer from "./components/shared/Footer";
 import Navbar from "./components/layout/Navbar";
 import { Toaster } from "react-hot-toast"
-import { useEffect } from "react"
+
 import gsap from "gsap"
 import { ScrollTrigger, SplitText } from "gsap/all"
 import ScrollToTop from "./components/layout/ScrollToTop ";

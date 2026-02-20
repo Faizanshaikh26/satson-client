@@ -343,25 +343,24 @@ import api from "../_lib/axios"
 import Link from "next/link"
 
 
-import type { Metadata } from "next"
+// import type { Metadata } from "next"
 
-// export const metadata: Metadata = {
-//   title: "Careers at Satson Innovation | Join Our Team",
-//   description:
-//     "Join Satson Innovation and work on AI-powered software, enterprise systems, and cutting-edge digital products.",
-// }
 
 
 type Job = {
   _id: string
-  title: string
-  tag: string
-  location: string
-  type: string
+  role: string
+  team: string
   slug:string,
+  workTime: string
+  location: string
   description: string
   requirements?: string[]
+  salaryRange: string
+  isActive: boolean
+  createdAt: string
 }
+
 
 type FilterButtonProps = {
   label: string
@@ -384,7 +383,7 @@ export default function JobsSection() {
       try {
         setLoading(true)
         setError("")
-        const res = await api.get("/jobs", {
+        const res = await api.get("/careers", {
           params: { tag: activeTag === "All" ? "" : activeTag },
         })
         const jobsData = res.data?.data || res.data || []
@@ -473,12 +472,13 @@ export default function JobsSection() {
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex flex-wrap items-center gap-3">
                     <h3 className="text-base sm:text-lg font-semibold font-marcellus text-white">
-                      {job.title}
-                    </h3>
+  {job.role}
+</h3>
 
-                    <span className="text-xs px-3 py-1 rounded-full font-inter bg-blue-500/10 text-blue-400">
-                      {job.tag}
-                    </span>
+<span className="text-xs px-3 py-1 rounded-full font-inter bg-blue-500/10 text-blue-400">
+  {job.team}
+</span>
+
                   </div>
 
                   <ChevronDown
@@ -489,21 +489,25 @@ export default function JobsSection() {
                   />
                 </div>
 
-                <div className="mt-2 flex flex-wrap items-center gap-4 text-xs sm:text-sm text-secondaryText font-poppins">
+                <div className="mt-2 flex flex-wrap items-center gap-4 text-xs sm:text-sHm text-secondaryText font-poppins">
                   <span className="flex items-center gap-1">
-                    <MapPin size={14} /> {job.location}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Clock size={14} /> {job.type}
-                  </span>
+  <MapPin size={14} /> {job.location}
+</span>
+
+<span className="flex items-center gap-1">
+  <Clock size={14} /> {job.workTime}
+</span>
+
                 </div>
               </button>
 
               {isOpen && (
                 <div className="px-5 sm:px-6 pb-6 space-y-6">
-                  <p className="text-[14px] sm:text-[16px] max-w-4xl text-secondaryText font-inter leading-relaxed">
-                    {job.description}
-                  </p>
+                  <div
+  className="text-[14px] sm:text-[16px] max-w-4xl text-secondaryText font-inter leading-relaxed"
+  dangerouslySetInnerHTML={{ __html: job.description }}
+/>
+
 
                   {job.requirements && job.requirements.length > 0 && (
                     <div>
@@ -521,6 +525,7 @@ export default function JobsSection() {
 
 
 <Link href={`/careers/${job.slug}`}>
+
                   <button className="w-full rounded-xl py-3 text-sm font-medium text-black font-inter bg-gradient-to-r from-[#C243FE] to-[#9B34CB] hover:opacity-90 transition-opacity">
                     Apply Now
                   </button>
